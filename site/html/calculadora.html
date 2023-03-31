@@ -8,43 +8,23 @@
     <title>Calculadora</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<header>
-    <img id="logo" src="../assets/logo.png" alt="">
-        <nav>
-            <section class="itens">
-            <a class="navitem">Home</a>
-            <a class="navitem"> O Projeto</a>
-            <a class="navitem"> Simule Aqui</a>
-            <a class="navitem"> Contato </a>
-            <a class="navitem"> Sobre nós</a>
-        </section>
-            <section id="login">  <img  id="logo1" src="../assets/avatar1.png" alt="">   <a id="loginbtn"> Login</a></section>
-           
-        </nav>
-    
-</header>
+
 
 <body>
-    <p class="titlep">Se interessou no nosso projeto?</p>
-    <p class="subtitlep">Calcule aqui o percentual de aumento de lucro!</p>
-    <div class="container">
+    Se interessou no nosso projeto?
+    Calcule aqui o percentual de aumento de lucro!
+    Quantos corredores seu supermercado possui? <input class="iptnum" id="ipt_corredoresTotais">
+    Em quantos corredores você deseja instalar? <input class="iptnum" id="ipt_corredoresInstalados">
+    Qual seu lucro mensal? <input class="iptlu" id="ipt_lucro">
+
+    <button id="btn_calcular" onclick="calcular()">CALCULAR</button><br>
 
 
-        <br>
-        <text>Quantos corredores seu supermercado possui? <input style=" margin-top: 5px;" class="iptnum"
-                id="ipt_corredoresTotais"> </text>
-        <text> Em quantos corredores você deseja instalar? <input class="iptnum" id="ipt_corredoresInstalados"> </text>
-        <text> Qual seu lucro mensal? <input class="iptlu" id="ipt_lucro"> </text>
-        <br>
-        <button id="btn_calcular" onclick="calcular()">CALCULAR</button><br>
-        <br>
-        <div class="resul">
-            <b> <text id="p_retorno"></p></b>
-        </div>
-    </div>
+    <b><span id="p_retorno"></div>
+
 </body>
 
- 
+
 
 </html>
 <script>

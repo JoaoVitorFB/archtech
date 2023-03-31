@@ -13,7 +13,7 @@
         <img id="logoHeader" src="assets/logo.png">
         <ul id="buttonsHeader">
             <li><a href="">Home</a></li>
-            <li><a href="https://google.com">O Projeto</a></li>
+            <li><a href="https://google.com">Projeto</a></li>
             <li><a href="">Simule Aqui</a></li>
             <li><a href="">Contato</a></li>
             <li><a href="">Sobre Nós</a></li>
@@ -34,19 +34,90 @@
     </div>
     <div id="oProjeto">
         <div class="container">
-            <div id="textOProjeto">
+            <div id="card1txt">
                 <h1>O Projeto</h1>
-                <p>O mal gerenciamento do layout e a disposição dos produtos nos setores e gôndolas de supermercados são os fatores que mais prejudicam as vendas. Muitas vezes o administrador não conhece as áreas de maior fluxo do estabelecimento, deixando assim de criar modelos eficazes de venda e perdendo lucro devido a mercadoria parada. </p>
-                <p>Pensando nisso, nosso projeto coleta informações sobre o fluxo de pessoas e comportamento do consumidor dentro do supermercado, referenciando tudo em gráficos para a análise de dados. Com essas informações, nosso objetivo é fornecer aos nossos clientes insights valiosos que lhes permitam tomar decisões eficazes sobre como gerenciar áreas mais movimentadas do estabelecimento, para que desta maneira seja feito a exclusividade daquele setor para determinada marca ou até mesmo estratégias de remanejamento de produtos.</p>
+                <p>O mal gerenciamento do layout e a disposição dos produtos nos setores e gôndolas de supermercados são
+                    os fatores que mais prejudicam as vendas. Muitas vezes o administrador não conhece as áreas de maior
+                    fluxo do estabelecimento, deixando assim de criar modelos eficazes de venda e perdendo lucro devido
+                    a mercadoria parada</p>
+                <p> Pensando nisso, nosso projeto coleta informações sobre o fluxo de pessoas e comportamento do
+                    consumidor dentro do supermercado, referenciando tudo em gráficos para a análise de dados. Com essas
+                    informações, nosso objetivo é fornecer aos nossos clientes insights valiosos que lhes permitam tomar
+                    decisões eficazes sobre como gerenciar áreas mais movimentadas do estabelecimento, para que desta
+                    maneira seja feito a exclusividade daquele setor para determinada marca ou até mesmo estratégias de
+                    remanejamento de produtos.</p>
             </div>
-            <img id="img_oProjeto" src="assets/img_oProjeto.png">
+            <div id="card2img">
+                <img>
+            </div>
         </div>
     </div>
-<div id="calculeAqui">
-    <div class="container">
-        
+    <div id="calculadora">
+        <div class="container">
+            <h1>Se interessou no nosso projeto?</h1>
+            <h2>Calcule aqui o aumento de percentual do seu lucro com a solução!</h2>
+            <div id="caixa">
+
+                <span>Quantos corredores seu supermercado possui? <input class="iptnum"
+                        id="ipt_corredoresTotais"></span>
+                <span> Em quantos corredores você deseja instalar? <input class="iptnum"
+                        id="ipt_corredoresInstalados"></span>
+                <span> Qual seu lucro mensal? <input class="iptlu" id="ipt_lucro"></span>
+                <button id="btn_calcular" onclick="calcular()">CALCULAR</button>
+                <div class="resul">
+                    <span id="p_retorno"></span>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+
+
+
 </body>
 
 </html>
+<script>
+  function calcular() {
+    //Declaração de variaveis
+    var corredoresTotais = Number(ipt_corredoresTotais.value);
+    var corredoresInstalados = Number(ipt_corredoresInstalados.value);
+    var lucro = Number(ipt_lucro.value)
+    var porcLucro = (corredoresInstalados * 0.33) / corredoresTotais
+
+    if (ipt_corredoresTotais.value == ``) {
+        alert(`Digite a quantidade de corredores totais`)
+        p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
+    }
+    else if (ipt_corredoresInstalados.value == ``) {
+        alert(`Digite a quantidade de corredores para instalar`)
+        p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
+    }
+    else if (ipt_lucro.value == ``) {
+        alert(`Digite o lucro`)
+        p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
+    }
+    else if (corredoresInstalados > corredoresTotais) {
+        alert(`O valor de corredores que você deseja instalar é maior ao número total de corredores`)
+        p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
+
+
+    }
+    else if (corredoresInstalados == corredoresTotais) {
+
+        p_retorno.innerHTML = `Seu lucro aumentará em até 33%, chegando em R$${lucro + (lucro * 0.33)} mensais.`
+
+    }
+    else if (corredoresInstalados < corredoresTotais) {
+        p_retorno.innerHTML = `Seu lucro aumentará em até ${porcLucro * 100}%, chegando em R$${lucro + (lucro * porcLucro)} mensais.<br>`
+        p_retorno.innerHTML += `Caso instalasse em todos os corredores, seu lucro aumentaria em até 33%, chegando em R$${lucro + (lucro * 0.33)} mensais.`
+    }
+
+
+
+
+
+        //Validações de campo vazio e campos irregulares
+    }
+  //Validações terminam aqui
+</script>

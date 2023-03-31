@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
+
+*{
+    font-family: 'News Cycle', sans-serif;
+}
+
+body{
+    margin: 0;
+}
+
+.container{
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+
+/*CABEÇALHO*/
+
+#title{
+    margin: 0;
+    color: #32b0cd;
+}
+
+header{
+    width: 100%;
+    height: 70px;
+    background-color: #f4f2f3;
+    display: flex;
+}
+
+#buttonsHeader{
+    width: 40%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+header .container{
+    justify-content: space-between;
+    align-items: center;
+}
+
+a, #buttonsHeader{
+    text-decoration: none;
+    font-weight: bold;
+    color: #08283B;
+    font-size: 18px;
+}
+
+
+/*FIM CABEÇALHO*/
+
+/*HOME*/
+
+#home {
+    display: flex;
+    background-color: #08283B;
+    background-image: url(../assets/backHome.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+#home .container{
+    display: flex;
+    flex-direction: column;
+    height: 570px;
+    align-items: end;
+    justify-content: center;
+   
+}
+
+#home .container p{
+    display: flex;
+    justify-content: end;
+    font-size: 35px;
+    text-align: justify;
+    color: #F4F2F3;
+}
+
+#home .container h1{
+    color: #3E82FF;
+    font-size: 40px;
+    text-align: left;
+    font-weight: lighter;
+}
+
+#textHome{
+    width: 70%;
+}
+
+/*FIM HOME*/
+
+/*O PROJETO*/
+
+#oProjeto{
+    height: 630px;
+    background-color: #f4f2f3;
+    display: flex;
+    align-items: center;
+}
+
+#oProjeto .container #textOProjeto{
+    background-color: #08283B;
+    width: 50%;
+    color: #f4f2f3;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: justify;
+}
+
+#oProjeto .container #textOProjeto h1{
+    color: #3E82FF;
+    margin: 0;
+}
+
+#oProjeto .container #img_oProjeto{
+    width: 50%;
+}
+

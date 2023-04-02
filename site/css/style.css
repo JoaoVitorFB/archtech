@@ -152,9 +152,10 @@ a,
 }
 
 /* Comeca a calculadora */
-#calculadora{
+#calculadora {
     margin-top: 70px;
 }
+
 #calculadora .container {
     display: flex;
     flex-direction: column;
@@ -236,15 +237,16 @@ a,
     border: none;
     width: 200px;
     height: 50px;
-    margin-bottom: 10px;    
+    margin-bottom: 10px;
 }
+
 #calculadora .container .resul {
 
-    
+
     width: 650px;
     height: 400px;
     background-color: #F4F2F3;
-     
+
     border-radius: 20px;
     border: none;
 
@@ -252,16 +254,51 @@ a,
 
 }
 
- 
 
-#calculadora .container #caixa .resul span{
+
+#calculadora .container #caixa .resul span {
     display: flex;
     margin: 0;
     color: rgb(65, 109, 0);
     font-size: 25px;
     font-weight: bold;
     align-self: center;
-text-align: center;
-align-items: center;
-margin-left: 10px;
+    text-align: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* Debug login */
+.debugbox .container #card1{
+   width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+justify-content: space-around;
+}
+.debugbox .container #card1 button{
+    width: 300px;
+    height: 100px;
+    background: #3B578A;
+    border-radius: 20px;
+    font-family: 'News Cycle';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    color: #FFFFFF;
+   
+}
+.debugbox{
+    background-image: url(../assets/backHome.png);
+   background-size: cover;
+   background-repeat: repeat;
+}
+.preenchimento{
+    display: flex;
+   
+    height: 30vh;
+    width: 100%;
+    background-color: #08283B;
+
 }

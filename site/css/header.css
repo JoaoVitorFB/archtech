@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
+ * {
+    font-family: 'News Cycle', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+
+/*CABEÇALHO*/
+
+#title {
+    margin: 0;
+    color: #32b0cd;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    background-color: #f4f2f3;
+    display: flex;
+}
+
+#buttonsHeader {
+    width: 40%;
+    list-style: none;
+    display: flex;
+
+}
+
+
+header .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #buttonsHeader {
+    display: flex;
+    justify-content: space-around;
+}
+
+a,
+#buttonsHeader {
+    text-decoration: none;
+    font-weight: bold;
+    color: #08283B;
+    font-size: 18px;
+    margin-left: 10px;
+
+}

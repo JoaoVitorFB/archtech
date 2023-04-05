@@ -1,0 +1,69 @@
+body{
+    background: linear-gradient(90deg, rgba(8, 40, 59, 1) 50%, rgba(59, 87, 138, 1) 100%);  
+overflow-x: hidden;
+}
+.box .container{
+
+    width: 40%;
+    
+    
+
+}   
+.box .titulo{
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+ width: 100%;
+ left: 0;
+ margin-top: 3%;
+display: flex;
+
+}
+
+.box  .titulo h2{
+    position: relative;
+    display: flex;
+    left: 30%;
+    align-items: center;
+    color: #F4F2F3;
+    font-size: 30px;
+
+}
+.box .container .caixacad {
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    height: 500px;
+    width: 100%;
+    margin-top: 6%;
+    border-radius: 20px;
+
+}.box .container .caixacad .inputs{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: space-around;
+}
+.box .container .caixacad .inputs input{
+ display: flex;
+    background-color: transparent;
+    border: none;
+margin-left: 5px;
+    font-size: 22px;
+ color: #F4F2F3;
+    width: 300px;
+}
+.box .container .caixacad .inputs input:focus{
+    outline: none;
+}.box .container .caixacad .inputs li{
+border-bottom: solid 2px #F4F2F3;
+color: #F4F2F3;
+width: 330px;
+margin-bottom:0px;
+display: flex;
+align-items: center;
+    
+}
+.box .container .caixacad .inputs .placehold{
+    margin-left: 10px;
+ font-size: 22px;
+    margin-bottom: 0px;
+}

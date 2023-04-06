@@ -104,7 +104,7 @@ a,
 /*O PROJETO*/
 
 #oProjeto {
-    height: 630px;
+    height: 700px;
     background-color: #f4f2f3;
     display: flex;
 
@@ -153,7 +153,10 @@ a,
 
 /* Comeca a calculadora */
 #calculadora {
-    margin-top: 70px;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
 }
 
 #calculadora .container {
@@ -202,8 +205,6 @@ a,
     color: #F4F2F3;
     margin-left: 10px;
     font-size: 25px;
-    margin-right: 10px;
-    margin-top: 5px;
     display: flex;
     align-items: center;
 
@@ -211,7 +212,7 @@ a,
 
 #calculadora .container .iptnum {
     width: 75px;
-    height: 40px;
+    height: 30px;
     border-radius: 20px;
     background-color: #F4F2F3;
     text-align: center;
@@ -219,7 +220,7 @@ a,
 
 .iptlu {
     width: 315px;
-    height: 50px;
+    height: 30px;
     border-radius: 20px;
     background-color: #F4F2F3;
 
@@ -227,31 +228,24 @@ a,
 
 
 #calculadora .container #caixa #btn_calcular {
-    margin-top: 10px;
     border-radius: 50px;
     background-color: #3E82FF;
     color: #F4F2F3;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     align-self: center;
     border: none;
     width: 200px;
-    height: 50px;
-    margin-bottom: 10px;
+    height: 40px;
 }
 
 #calculadora .container .resul {
-
-
     width: 650px;
     height: 400px;
     background-color: #F4F2F3;
-
     border-radius: 20px;
     border: none;
-
     align-self: center;
-
 }
 
 
@@ -302,3 +296,40 @@ justify-content: space-around;
     background-color: #08283B;
 
 }
+
+/*SOBRE NÓS*/
+
+#sobreNos{
+    height: 700px;
+    display: flex;
+    align-items: center;
+    background-color: #F4F2F3;
+    color: #08283B;
+}
+
+.container #logoSobreNos{
+    width: 50%;
+    background-color: #F4F2F3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.container #textoSobreNos{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    flex-direction: column;
+    text-align: justify;
+    
+}
+
+.container #textoSobreNos h1{
+    margin: 0;
+}
+
+
+/*FIM SOBRE NÓS*/

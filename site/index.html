@@ -6,11 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <div id="darkmodelink">
+    <link rel="stylesheet" href="css/style.css">
+</div>
     <title>ArchTech</title>
 </head>
-<header>
+<header> 
+    
     <div class="container">
+        <label class="switch">
+            <input onchange="ativarDarkmode()" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <span id="logochange">
         <img id="logoHeader" src="assets/logo.png">
+    </span>
         <ul id="buttonsHeader">
             <li><a href="">Home</a></li>
             <li><a href="">Projeto</a></li>
@@ -18,6 +28,7 @@
             <li><a href="">Contato</a></li>
             <li><a href="">Sobre Nós</a></li>
             <li><a href="html/debuglogin.html">Login</a></li>
+           
         </ul>
     </div>
 </header>
@@ -92,6 +103,9 @@
 
 </html>
 <script>
+    darkmode = `<link rel="stylesheet" href="css/style-dark.css">`
+    lightmode = `<link rel="stylesheet" href="css/style.css">`
+    modo = lightmode
   function calcular() {
     //Declaração de variaveis
     var corredoresTotais = Number(ipt_corredoresTotais.value);
@@ -133,5 +147,20 @@
 
         //Validações de campo vazio e campos irregulares
     }
+function ativarDarkmode() {
+   
+    if (modo == lightmode) {    
+    modo = darkmode   
+    logochange.innerHTML = `<img id="logoHeader" src="assets/logopreta.png">`
+    darkmodelink.innerHTML = modo
+   
+}else if(modo == darkmode){
+    modo = lightmode  
+    logochange.innerHTML = `<img id="logoHeader" src="assets/logo.png">`
+    darkmodelink.innerHTML = modo
+    console.log ('deu') 
+
+}
+}
   //Validações terminam aqui
 </script>

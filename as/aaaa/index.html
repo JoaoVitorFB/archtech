@@ -1,0 +1,734 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Line Chart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
+
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+
+        * {
+
+            font-family: 'News Cycle', sans-serif;
+        }
+
+        body {
+            margin: 0;
+         background: linear-gradient(90deg, rgba(8, 40, 59, 1) 50%, rgba(59, 87, 138, 1) 100%);
+        }
+
+        .container {
+            width: 80%;
+            display: flex;
+            margin: auto;
+        }
+
+        /*CABEÇALHO*/
+
+        #title {
+            margin: 0;
+            color: #32b0cd;
+        }
+
+        header {
+            width: 100%;
+            height: 90px;
+            background-color: #f4f2f3;
+            display: flex;
+        }
+
+        #buttonsHeader {
+            width: 40%;
+            list-style: none;
+            display: flex;
+
+        }
+
+
+        header .container {
+            justify-content: space-between;
+            align-items: center;
+        }
+        #caixa {
+ 
+            background-color: rgba(0, 0, 0, 0.53);
+            width: 90%;
+        margin: auto;
+        }
+        #caixa h1{
+            color: whitesmoke;
+        }
+        #caixa .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            
+        }
+        .graficos{
+            background-color: #F4F2F3;
+        }
+
+        header #buttonsHeader {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        a,
+        #buttonsHeader {
+            text-decoration: none;
+            font-weight: bold;
+            color: #08283B;
+            font-size: 18px;
+            margin-left: 10px;
+
+        }
+
+
+        /*FIM CABEÇALHO*/
+
+        /*HOME*/
+
+        #home {
+            display: flex;
+            background-color: #08283B;
+            background-image: url(../assets/backHome.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+        }
+
+        #home .container {
+            display: flex;
+            flex-direction: column;
+            height: 570px;
+            align-items: end;
+            justify-content: center;
+
+
+        }
+
+        #home .container p {
+            display: flex;
+            justify-content: end;
+            font-size: 35px;
+            text-align: justify;
+            color: #F4F2F3;
+        }
+
+        #home .container h1 {
+            color: #3E82FF;
+            font-size: 40px;
+            text-align: left;
+            font-weight: lighter;
+        }
+
+        #textHome {
+            width: 70%;
+        }
+
+        /*FIM HOME*/
+
+        /*O PROJETO*/
+
+        #oProjeto {
+            height: 700px;
+            background-color: #f4f2f3;
+            display: flex;
+
+        }
+
+        #oProjeto .container {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
+
+        }
+
+        #oProjeto .container #card1txt {
+            background-color: #08283B;
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            color: #f4f2f3;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: justify;
+            position: absolute;
+            height: 450px;
+            left: 10%;
+            font-size: 17px;
+
+        }
+
+        #oProjeto .container #card2img {
+            height: 580px;
+            width: 75%;
+
+            background-image: url(../assets/img_oProjeto.png);
+            border-radius: 20px;
+            background-repeat: no-repeat;
+            align-items: center;
+
+
+        }
+
+        #oProjeto .container #card1txt h1 {
+            color: #3E82FF;
+            margin: 0;
+        }
+
+        /* Comeca a calculadora */
+        #calculadora {
+            height: 700px;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #calculadora .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+        }
+
+        #calculadora .container #caixa {
+            display: flex;
+            flex-direction: column;
+            background-color: #08283B;
+            width: 630px;
+            height: 370px;
+            padding: 30px;
+            border-radius: 20px;
+
+        }
+
+        #calculadora .container span {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            color: #F4F2F3;
+        }
+
+        #calculadora .container h1 {
+            color: #08283B;
+            font-size: 40px;
+            font-weight: bold;
+            margin: 0px;
+            margin-bottom: 12px;
+        }
+
+        #calculadora .container h2 {
+            color: #08283B;
+            font-weight: bold;
+            font-size: 25px;
+            margin: 0px;
+            margin-bottom: 30px;
+
+        }
+
+        #calculadora .container #caixa span {
+            color: #F4F2F3;
+            margin-left: 10px;
+            font-size: 25px;
+            display: flex;
+            align-items: center;
+
+        }
+
+        #calculadora .container .iptnum {
+            width: 75px;
+            height: 30px;
+            border-radius: 20px;
+            background-color: #F4F2F3;
+            text-align: center;
+        }
+
+        .iptlu {
+            width: 315px;
+            height: 30px;
+            border-radius: 20px;
+            background-color: #F4F2F3;
+
+        }
+
+
+        #calculadora .container #caixa #btn_calcular {
+            border-radius: 50px;
+            background-color: #3E82FF;
+            color: #F4F2F3;
+            font-size: 20px;
+            font-weight: bold;
+            align-self: center;
+            border: none;
+            width: 200px;
+            height: 40px;
+        }
+
+        #calculadora .container .resul {
+            width: 650px;
+            height: 400px;
+            background-color: #F4F2F3;
+            border-radius: 20px;
+            border: none;
+            align-self: center;
+        }
+
+
+
+        #calculadora .container #caixa .resul span {
+            display: flex;
+            margin: 0;
+            color: rgb(65, 109, 0);
+            font-size: 25px;
+            font-weight: bold;
+            align-self: center;
+            text-align: center;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        /* Debug login */
+        .debugbox .container #card1 {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .debugbox .container #card1 button {
+            width: 300px;
+            height: 100px;
+            background: #3B578A;
+            border-radius: 20px;
+            font-family: 'News Cycle';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 25px;
+            color: #FFFFFF;
+
+        }
+
+        .debugbox {
+            background-image: url(../assets/backHome.png);
+            background-size: cover;
+            background-repeat: repeat;
+        }
+
+        .preenchimento {
+            display: flex;
+
+            height: 30vh;
+            width: 100%;
+            background-color: #08283B;
+
+        }
+
+        /*SOBRE NÓS*/
+
+        #sobreNos {
+            height: 700px;
+            display: flex;
+            align-items: center;
+            background-color: #F4F2F3;
+            color: #08283B;
+        }
+
+        .container #logoSobreNos {
+            width: 50%;
+            background-color: #F4F2F3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 20px;
+        }
+
+        .container #textoSobreNos {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 20px;
+            flex-direction: column;
+            text-align: justify;
+
+        }
+
+        .container #textoSobreNos h1 {
+            margin: 0;
+        }
+
+
+        /*FIM SOBRE NÓS*/
+        /* BOTAO DARKMODE */
+        /* The switch - the box around the slider */
+        .switch {
+            position: absolute;
+            display: flex;
+            align-self: flex-end;
+            width: 60px;
+            height: 34px;
+            left: 2%;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: rgb(0, 0, 0);
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: rgb(41, 38, 38);
+        }
+
+
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+            background-color: #F4F2F3;
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+            background-color: black;
+        }
+    </style>
+</head>
+<header>
+
+    <div class="container">
+         
+        <span id="logochange">
+            <h1>Archtech</h1>
+        </span>
+        <ul id="buttonsHeader">
+            <li><a href="">Home</a></li>
+            <li><a href="">Projeto</a></li>
+            <li><a href="">Simule Aqui</a></li>
+            <li><a href="">Contato</a></li>
+            <li><a href="">Sobre Nós</a></li>
+            <li><a href="html/debuglogin.html">Login</a></li>
+
+        </ul>
+    </div>
+</header>
+
+<body>
+    <div>
+        <div id="caixa">
+            <div class="container">
+                <h1>Sensor DHT 11 - Umidade</h1>
+                <section class="graficos">
+                    <canvas   id="dht11Umidade"></canvas>
+                </section>
+                <h1>Sensor DHT 11 - Temperatura</h1>
+                <section class="graficos">
+                    <canvas  id="dht11Temperatura"></canvas>
+                </section>
+                <h1>Sensor Luminosidade</h1>
+                <section class="graficos">
+                    <canvas  id="luminosidade"></canvas>
+                </section>
+                <h1>Sensor LM 35 - Temperatura</h1>
+                <section class="graficos">
+                    <canvas  id="lm35Temperatura"></canvas>
+                </section>
+                <h1>Sensor Chave</h1>
+                <section class="graficos">
+                    <canvas  id="chave"></canvas>
+                </section>
+            </div>
+        
+        </div>
+    </div>
+        <script>
+
+             /* -- dht11Umidade -- */
+        var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
+        contextoDht11Umidade.canvas.width = 1000;
+        contextoDht11Umidade.canvas.height = 300;
+        var dht11Umidade = new Chart(
+            contextoDht11Umidade,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Umidade',
+                        type: 'line',
+                        borderColor: ['#45b3e7'],
+                        backgroundColor: ['#89cff0']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Umidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- dht11Temperatura -- */
+        var contextoDht11Temperatura = document.getElementById('dht11Temperatura').getContext('2d');
+        contextoDht11Temperatura.canvas.width = 1000;
+        contextoDht11Temperatura.canvas.height = 300;
+        var dht11Temperatura = new Chart(
+            contextoDht11Temperatura,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: "Temperatura",
+                        type: 'line',
+                        borderColor: ['#ff3232'],
+                        backgroundColor: ['#ff7f7f']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Luminosidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- luminosidade -- */
+        var contextoLuminosidade = document.getElementById('luminosidade').getContext('2d');
+        contextoLuminosidade.canvas.width = 1000;
+        contextoLuminosidade.canvas.height = 300;
+        var luminosidade = new Chart(
+            contextoLuminosidade,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Luminosidade',
+                        type: 'line',
+                        borderColor: ['#ffd902'],
+                        backgroundColor: ['#ffe135']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Luminosidade'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- lm35Temperatura */
+        var contextoLm35Temperatura = document.getElementById('lm35Temperatura').getContext('2d');
+        contextoLm35Temperatura.canvas.width = 1000;
+        contextoLm35Temperatura.canvas.height = 300;
+        var lm35Temperatura = new Chart(
+            contextoLm35Temperatura,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Temperatura',
+                        type: 'line',
+                        borderColor: ['#ffd902'],
+                        backgroundColor: ['#ffe135']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperatura'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+        /* -- chave */
+        var contextoChave = document.getElementById('chave').getContext('2d');
+        contextoChave.canvas.width = 1000;
+        contextoChave.canvas.height = 300;
+        var chave = new Chart(
+            contextoChave,
+            {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Chave',
+                        type: 'line',
+                        borderColor: ['#ffd902'],
+                        backgroundColor: ['#ffe135']
+                    }]
+                },
+                options: {
+                    scales: {
+                        xAxes: [{
+                            distribution: 'series',
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Chave'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    animation: {
+                        duration: 0
+                    }
+                }
+            }
+        );
+
+        var paginacao = {};
+        var tempo = {};
+        function obterDados(grafico, endpoint) {
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/sensores/' + endpoint, false);
+            http.send(null);
+            var valores = JSON.parse(http.responseText);
+            if (paginacao[endpoint] == null) {
+                paginacao[endpoint] = 0;
+            }
+            if (tempo[endpoint] == null) {
+                tempo[endpoint] = 0;
+            }
+            // Exibir à partir do último elemento exibido anteriormente
+            var ultimaPaginacao = paginacao[endpoint];
+            paginacao[endpoint] = valores.length;
+            var valores = valores.slice(ultimaPaginacao);
+            valores.forEach((valor) => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (grafico.data.labels.length == 10 && grafico.data.datasets[0].data.length == 10) {
+                    grafico.data.labels.shift();
+                    grafico.data.datasets[0].data.shift();
+                }
+
+                grafico.data.labels.push(tempo[endpoint]++);
+                grafico.data.datasets[0].data.push(parseFloat(valor));
+                grafico.update();
+            })
+        }
+
+        setInterval(() => {
+            obterDados(dht11Umidade, 'dht11/umidade');
+            obterDados(dht11Temperatura, 'dht11/temperatura');
+            obterDados(luminosidade, 'luminosidade');
+            obterDados(lm35Temperatura, 'lm35/temperatura');
+            obterDados(chave, 'chave');
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

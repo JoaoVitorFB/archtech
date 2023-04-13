@@ -90,7 +90,7 @@ header .container {
     height: 120px;
     margin-bottom: 30px;
     border-radius: 20px;
-    width: 300px;
+    width: 350px;
     background: #3B578A;
     font-family: 'News Cycle';
     border: 0;
@@ -101,7 +101,7 @@ header .container {
 .container .retangulo #botoes{
     height: 300px;
     display: flex;
-    flex-direction: row;
+    flex-direction:row;
     flex-wrap: wrap;
     align-items: center;
     width: 80%;

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
 
 * {
-    transition: 0.75s;
     font-family: 'News Cycle', sans-serif;
 
 }
@@ -39,7 +38,7 @@ header {
 }
 
 #buttonsHeader {
-    width: 40%;
+    width: 50%;
     list-style: none;
     display: flex;
 

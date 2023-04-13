@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <div id="darkmodelink">
-    <link rel="stylesheet" href="css/style.css">
-</div>
+        <link rel="stylesheet" href="css/style.css">
+    </div>
     <title>ArchTech</title>
 </head>
-<header> 
-    
+<header>
+
     <div class="container">
         <label class="switch">
             <input onchange="ativarDarkmode()" type="checkbox">
             <span class="slider round"></span>
-          </label>
-          <span id="logochange">
-        <img id="logoHeader" src="assets/logo.png">
-    </span>
+        </label>
+        <span id="logochange">
+            <img id="logoHeader" src="assets/logo.png">
+        </span>
         <ul id="buttonsHeader">
             <li><a href="">Home</a></li>
             <li><a href="">Projeto</a></li>
@@ -28,13 +28,13 @@
             <li><a href="">Contato</a></li>
             <li><a href="">Sobre Nós</a></li>
             <li><a href="html/debuglogin.html">Login</a></li>
-           
+
         </ul>
     </div>
 </header>
- 
- 
- 
+
+
+
 
 <body>
     <div id="home">
@@ -69,17 +69,45 @@
     <div id="calculadora">
         <div class="container">
             <h1>Se interessou no nosso projeto?</h1>
-            <h2>Calcule aqui o aumento de percentual do seu lucro com a solução!</h2>
+            <h2>Calcule aqui o aumento de percentual do seu faturamento com a solução!</h2>
             <div id="caixa">
 
                 <span>Quantos corredores seu supermercado possui? <input class="iptnum"
                         id="ipt_corredoresTotais"></span>
                 <span> Em quantos corredores você deseja instalar? <input class="iptnum"
                         id="ipt_corredoresInstalados"></span>
-                <span> Qual seu lucro mensal? <input class="iptlu" id="ipt_lucro"></span>
+                <span> Qual seu faturamento mensal? <input class="iptlu" id="ipt_lucro"></span>
                 <button id="btn_calcular" onclick="calcular()">CALCULAR</button>
                 <div class="resul">
                     <span id="p_retorno"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contato">
+        <div class="container">
+            <div id="box">
+                <div id="ctt_titulo">
+                    <h1>Entre em contato conosco!</h1>
+                    <p>Será um prazer contribuir com seu faturamento!</p>
+                </div>
+                <div id="infos">
+                    <div class="ctt_label" id="ctt_email">
+                        <img src="assets/iconeEmail.png">
+                        <p>archtech@contato.com</p>
+                    </div>
+                    <div class="ctt_label" id="ctt_telefone">
+                        <img src="assets/iconeTelefone.png">
+                        <p>(11) 1234-5678</p>
+                    </div>
+                    <div class="ctt_label" id="ctt_whatsapp">
+                        <img src="assets/iconeWhatsapp.png">
+                        <p>(11) 98765-4321</p>
+                    </div>
+                    <div class="ctt_label" id="ctt_insta">
+                        <img src="assets/iconeInsta.png">
+                        <p>@archtech</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,14 +119,12 @@
             </div>
             <div id="textoSobreNos">
                 <h1>Sobre Nós</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore sed dicta non esse? Possimus laborum praesentium vel aliquam! Eos minus voluptatum corporis, perferendis esse libero est id sit architecto laudantium.</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore sed dicta non esse? Possimus
+                    laborum praesentium vel aliquam! Eos minus voluptatum corporis, perferendis esse libero est id sit
+                    architecto laudantium.</p>
             </div>
         </div>
     </div>
-
-
-
-
 </body>
 
 </html>
@@ -106,40 +132,40 @@
     darkmode = `<link rel="stylesheet" href="css/style-dark.css">`
     lightmode = `<link rel="stylesheet" href="css/style.css">`
     modo = lightmode
-  function calcular() {
-    //Declaração de variaveis
-    var corredoresTotais = Number(ipt_corredoresTotais.value);
-    var corredoresInstalados = Number(ipt_corredoresInstalados.value);
-    var lucro = Number(ipt_lucro.value)
-    var porcLucro = (corredoresInstalados * 0.33) / corredoresTotais
+    function calcular() {
+        //Declaração de variaveis
+        var corredoresTotais = Number(ipt_corredoresTotais.value);
+        var corredoresInstalados = Number(ipt_corredoresInstalados.value);
+        var lucro = Number(ipt_lucro.value)
+        var porcLucro = (corredoresInstalados * 0.33) / corredoresTotais
 
-    if (ipt_corredoresTotais.value == ``) {
-        alert(`Digite a quantidade de corredores totais`)
-        p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
-    }
-    else if (ipt_corredoresInstalados.value == ``) {
-        alert(`Digite a quantidade de corredores para instalar`)
-        p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
-    }
-    else if (ipt_lucro.value == ``) {
-        alert(`Digite o lucro`)
-        p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
-    }
-    else if (corredoresInstalados > corredoresTotais) {
-        alert(`O valor de corredores que você deseja instalar é maior ao número total de corredores`)
-        p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
+        if (ipt_corredoresTotais.value == ``) {
+            alert(`Digite a quantidade de corredores totais`)
+            p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
+        }
+        else if (ipt_corredoresInstalados.value == ``) {
+            alert(`Digite a quantidade de corredores para instalar`)
+            p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
+        }
+        else if (ipt_lucro.value == ``) {
+            alert(`Digite o lucro`)
+            p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
+        }
+        else if (corredoresInstalados > corredoresTotais) {
+            alert(`O valor de corredores que você deseja instalar é maior ao número total de corredores`)
+            p_retorno.innerHTML = `<span style="color:red;">ERRO</span>`
 
 
-    }
-    else if (corredoresInstalados == corredoresTotais) {
+        }
+        else if (corredoresInstalados == corredoresTotais) {
 
-        p_retorno.innerHTML = `Seu lucro aumentará em até 33%, chegando em R$${lucro + (lucro * 0.33)} mensais.`
+            p_retorno.innerHTML = `Seu lucro aumentará em até 33%, chegando em R$${lucro + (lucro * 0.33)} mensais.`
 
-    }
-    else if (corredoresInstalados < corredoresTotais) {
-        p_retorno.innerHTML = `Seu lucro aumentará em até ${porcLucro * 100}%, chegando em R$${lucro + (lucro * porcLucro)} mensais.<br>`
-        p_retorno.innerHTML += `Caso instalasse em todos os corredores, seu lucro aumentaria em até 33%, chegando em R$${lucro + (lucro * 0.33)} mensais.`
-    }
+        }
+        else if (corredoresInstalados < corredoresTotais) {
+            p_retorno.innerHTML = `Seu lucro aumentará em até ${porcLucro * 100}%, chegando em R$${lucro + (lucro * porcLucro)} mensais.<br>`
+            p_retorno.innerHTML += `Caso instalasse em todos os corredores, seu lucro aumentaria em até 33%, chegando em R$${lucro + (lucro * 0.33)} mensais.`
+        }
 
 
 
@@ -147,20 +173,20 @@
 
         //Validações de campo vazio e campos irregulares
     }
-function ativarDarkmode() {
-   
-    if (modo == lightmode) {    
-    modo = darkmode   
-    logochange.innerHTML = `<img id="logoHeader" src="assets/logopreta.png">`
-    darkmodelink.innerHTML = modo
-   
-}else if(modo == darkmode){
-    modo = lightmode  
-    logochange.innerHTML = `<img id="logoHeader" src="assets/logo.png">`
-    darkmodelink.innerHTML = modo
-    console.log ('deu') 
+    function ativarDarkmode() {
 
-}
-}
+        if (modo == lightmode) {
+            modo = darkmode
+            logochange.innerHTML = `<img id="logoHeader" src="assets/logopreta.png">`
+            darkmodelink.innerHTML = modo
+
+        } else if (modo == darkmode) {
+            modo = lightmode
+            logochange.innerHTML = `<img id="logoHeader" src="assets/logo.png">`
+            darkmodelink.innerHTML = modo
+            console.log('deu')
+
+        }
+    }
   //Validações terminam aqui
 </script>

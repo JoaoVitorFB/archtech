@@ -3,9 +3,18 @@
 * {
     transition: 0.75s;
     font-family: 'News Cycle', sans-serif;
+
 }
 
 body {
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+p {
     margin: 0;
 }
 
@@ -158,6 +167,7 @@ a,
     display: flex;
     align-items: center;
     padding: 20px;
+    background-color: #f4f2f3;
 }
 
 #calculadora .container {
@@ -264,15 +274,16 @@ a,
 }
 
 /* Debug login */
-.debugbox .container #card1{
-   width: 100%;
+.debugbox .container #card1 {
+    width: 100%;
     height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
-justify-content: space-around;
+    justify-content: space-around;
 }
-.debugbox .container #card1 button{
+
+.debugbox .container #card1 button {
     width: 300px;
     height: 100px;
     background: #3B578A;
@@ -282,25 +293,92 @@ justify-content: space-around;
     font-weight: 700;
     font-size: 25px;
     color: #FFFFFF;
-   
+
 }
-.debugbox{
+
+.debugbox {
     background-image: url(../assets/backHome.png);
-   background-size: cover;
-   background-repeat: repeat;
+    background-size: cover;
+    background-repeat: repeat;
 }
-.preenchimento{
+
+.preenchimento {
     display: flex;
-   
+
     height: 30vh;
     width: 100%;
     background-color: #08283B;
 
 }
 
+/*CONTATO*/
+
+#contato {
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #08283B;
+    color: #08283B;
+}
+
+#contato .container #box {
+    width: 100%;
+    height: 600px;
+    background-color: #f4f2f3;
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+
+#contato .container #box #infos {
+    color: #3B578A;
+    font-size: 25px;
+    height: 390px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: aqua;
+}
+
+.ctt_label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ctt_label img {
+    width: 40px;
+    height: 40px;
+    margin-right: 30px;
+}
+
+#ctt_email img {
+    width: 45px;
+    height: 33px;
+}
+
+#ctt_titulo {
+    background-color: blueviolet;
+    margin-bottom: 30px;
+}
+
+#ctt_titulo h1 {
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+#ctt_titulo p {
+    font-size: 20px;
+}
+
+/*FIM CONTATO*/
+
 /*SOBRE NÓS*/
 
-#sobreNos{
+#sobreNos {
     height: 700px;
     display: flex;
     align-items: center;
@@ -308,7 +386,7 @@ justify-content: space-around;
     color: #08283B;
 }
 
-.container #logoSobreNos{
+.container #logoSobreNos {
     width: 50%;
     background-color: #F4F2F3;
     display: flex;
@@ -317,7 +395,7 @@ justify-content: space-around;
     padding-right: 20px;
 }
 
-.container #textoSobreNos{
+.container #textoSobreNos {
     width: 50%;
     display: flex;
     align-items: center;
@@ -325,15 +403,16 @@ justify-content: space-around;
     padding-left: 20px;
     flex-direction: column;
     text-align: justify;
-    
+
 }
 
-.container #textoSobreNos h1{
+.container #textoSobreNos h1 {
     margin: 0;
 }
 
 
 /*FIM SOBRE NÓS*/
+
 /* BOTAO DARKMODE */
 /* The switch - the box around the slider */
 .switch {
@@ -343,17 +422,17 @@ justify-content: space-around;
     width: 60px;
     height: 34px;
     left: 2%;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
+}
+
+/* Hide default HTML checkbox */
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  /* The slider */
-  .slider {
+}
+
+/* The slider */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -363,9 +442,9 @@ justify-content: space-around;
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -375,27 +454,29 @@ justify-content: space-around;
     background-color: rgb(0, 0, 0);
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
+}
+
+input:checked+.slider {
     background-color: rgb(41, 38, 38);
-  }
-  
-  
-  
-  input:checked + .slider:before {
+}
+
+
+
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);    
+    -ms-transform: translateX(26px);
     transform: translateX(26px);
     background-color: #F4F2F3;
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
+}
+
+/* Rounded sliders */
+.slider.round {
     border-radius: 34px;
-  }
-  
-  .slider.round:before {
+}
+
+.slider.round:before {
     border-radius: 50%;
     background-color: black;
-  }
+}
+
+/* FIM BOTÃO DARK MODE*/

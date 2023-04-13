@@ -28,10 +28,10 @@ header {
 }
 
 #buttonsHeader {
-    width: 40%;
+    width: 50%;
     list-style: none;
     display: flex;
-
+flex-wrap: nowrap;
 }
 
 
@@ -40,11 +40,12 @@ header .container {
     align-items: center;
 }
 
-header #buttonsHeader {
+header #buttonsHeader   {
     display: flex;
     justify-content: space-around;
+    
 }
-
+ 
 a,
 #buttonsHeader {
     text-decoration: none;

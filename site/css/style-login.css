@@ -29,18 +29,35 @@ display: flex;
 
 }
 .box .container .caixacad {
-    display: flex;
+ 
     background: rgba(0, 0, 0, 0.5);
     height: 500px;
     width: 100%;
     margin-top: 6%;
     border-radius: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-}.box .container .caixacad .inputs{
+
+}.box .container .caixacad ul{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    
+}
+
+.box .container .caixacad .inputs{
     display: flex;
     flex-direction: column;
     list-style: none;
     justify-content: space-around;
+    align-items: center;
+    height: 40%;
+}
+.box .container .caixacad .input span{
+ 
 }
 .box .container .caixacad .inputs input{
  display: flex;
@@ -67,4 +84,7 @@ align-items: center;
  font-size: 22px;
     margin-bottom: 0px;
     line-break:normal
+}
+#senhaesq{
+ 
 }

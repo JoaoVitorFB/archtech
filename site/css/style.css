@@ -247,6 +247,7 @@ a,
     border: none;
     width: 200px;
     height: 40px;
+    margin-bottom: 10px;
 }
 
 #calculadora .container .resul {
@@ -272,6 +273,10 @@ a,
     margin-left: 10px;
 }
 
+.camposCalc{
+    padding-bottom: 10px;
+}
+
 /* Debug login */
 .debugbox .container #card1 {
     width: 100%;
@@ -292,7 +297,6 @@ a,
     font-weight: 700;
     font-size: 25px;
     color: #FFFFFF;
-
 }
 
 .debugbox {

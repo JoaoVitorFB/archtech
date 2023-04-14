@@ -54,7 +54,7 @@ display: flex;
     list-style: none;
     justify-content: space-around;
     align-items: center;
-    height: 40%;
+    height: 100%;
 }
 .box .container .caixacad .input span{
  

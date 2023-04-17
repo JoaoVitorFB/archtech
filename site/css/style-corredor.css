@@ -99,7 +99,11 @@ header .container {
     font-size: 25px;
     color: #FFFFFF;
     font-weight: 700;
-}
+
+}.retangulo .corredor:hover { 
+border:solid 5px  #476cb0
+ ;
+background-color: #2c3e60;}
 .container .retangulo #botoes{
     height: 300px;
     display: flex;
@@ -111,6 +115,7 @@ header .container {
     justify-content: space-around;
 
 }
+ 
 
 
     

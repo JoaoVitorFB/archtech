@@ -14,36 +14,6 @@ body {
     margin: auto;
 }
 
-/*CABEÇALHO*/
-
-#title {
-    margin: 0;
-    color: #32b0cd;
-}
-
-.header {
-    width: 100%;
-    height: 70px;
-    background-color: #f4f2f3;
-    display: flex;
-}
-
-
-
-header .container {
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header li {
-    color:black;
-    width: 910px;
-    list-style: none;
-    display: flex;
-    justify-content: end;
-}
-
-/*FIM CABEÇALHO*/
 
 /* COMEÇO MAIN */
 
@@ -66,7 +36,7 @@ header .container {
     flex-direction: column;
     background: rgba(0, 0, 0, 0.3);
     width: 100%;
-    height: 70%;
+    height: 75%;
     border-radius: 20px;
 }
 
@@ -84,12 +54,12 @@ header .container {
     background-position: top;
     background-size: contain;
     width: 100%;
-    height: 100%;
+    height: 70%;
     margin-top: 50px;
 }
 
 .titulo {
-    margin-top: 50px;
+    margin-top: 25px;
     margin-left: 30px;
 }
 

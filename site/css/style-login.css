@@ -55,10 +55,9 @@ display: flex;
     justify-content: space-around;
     align-items: center;
     height: 40%;
+   
 }
-.box .container .caixacad .input span{
  
-}
 .box .container .caixacad .inputs input{
  display: flex;
     background-color: transparent;
@@ -87,5 +86,6 @@ align-items: center;
     line-break:normal;
 }
 #senhaesq{
+  
  
 }

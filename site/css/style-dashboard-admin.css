@@ -1,27 +1,3 @@
-/*CABEÇALHO*/
-
-header {
-    width: 100%;
-    height: 70px;
-    background-color: #f4f2f3;
-    display: flex;
-}
-
-header .container {
-    justify-content: space-between;
-    align-items: center;
-}
-
-header li {
-    color:black;
-    width: 910px;
-    list-style: none;
-    display: flex;
-    justify-content: end;
-}
-
-/*FIM CABEÇALHO*/
-
 /* COMEÇO MAIN */
 
 .main {

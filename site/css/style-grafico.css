@@ -14,6 +14,7 @@ body {
     margin: auto;
 }
 
+<<<<<<< HEAD
 /*CABEÇALHO*/
 
 #title {
@@ -44,6 +45,9 @@ header .container {
 }
 
 /*FIM CABEÇALHO*/
+=======
+ 
+>>>>>>> 3e8ba675bd75808b587a3d53dc9f08d967d8aabe
 
 /* COMEÇO MAIN */
 
@@ -64,7 +68,10 @@ header .container {
 .retangulo {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     align-items: center;
+=======
+>>>>>>> 3e8ba675bd75808b587a3d53dc9f08d967d8aabe
     background: rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 70%;
@@ -82,6 +89,7 @@ header .container {
 .imagem {
     background: url("../assets/grafico.png");
     background-repeat: no-repeat;
+<<<<<<< HEAD
     background-position: center center;
     width: 100%;
     height: 100%;
@@ -93,6 +101,18 @@ header .container {
     margin-left: -700px;
     margin-top: 50px;
 
+=======
+    background-position: top;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+}
+
+.titulo {
+    margin-top: 50px;
+    margin-left: 30px;
+>>>>>>> 3e8ba675bd75808b587a3d53dc9f08d967d8aabe
 }
 
 

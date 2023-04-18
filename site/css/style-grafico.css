@@ -53,6 +53,10 @@ body {
     margin-left: 30px;
 }
 
+#graficosApagados{
+    display: none;
+}
+
 
 /* FIM RETÂNGULO */
 

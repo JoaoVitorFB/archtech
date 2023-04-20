@@ -16,6 +16,9 @@
 
 DHT dht(DHTPIN, DHT11);
 
+int i = 0;
+int pessoa = 0;
+
 void setup()
 {
   pinMode(DHTPIN, INPUT);
@@ -44,14 +47,20 @@ void loop()
   Serial.print(";");
 
   int chave = digitalRead(7);
-  if (chave == 0)  
-  {  
-    Serial.print("Pessoa detectada");  
-  }  
-  else  
-  {  
-    Serial.print("Ninguem");  
+
+  if (chave == 0 && i == 0){
+    i++;
+    pessoa++;
+  } else if (chave == 1){
+    i = 0;
   }
+      
+      
+    Serial.print("Sensor:");
+  	Serial.println(chave);    
+    Serial.print("Pessoa:");
+  	Serial.println(pessoa); 
+
 
   Serial.println();
 }

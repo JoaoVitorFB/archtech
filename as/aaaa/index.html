@@ -490,19 +490,20 @@
         <script>
 
              /* -- dht11Umidade -- */
-        var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d');
-        contextoDht11Umidade.canvas.width = 1000;
-        contextoDht11Umidade.canvas.height = 300;
+        var contextoDht11Umidade = document.getElementById('dht11Umidade').getContext('2d'); //Define uma variável para que o conteúdo dela seja colocado no canvas
+        contextoDht11Umidade.canvas.width = 1000; //Define a largura do gráfico
+        contextoDht11Umidade.canvas.height = 300; //Define a altura do gráfico
+        /* Criação do gráfico */
         var dht11Umidade = new Chart(
-            contextoDht11Umidade,
+            contextoDht11Umidade, //Define onde será implantado o gráfico
             {
-                type: 'line',
+                type: 'line', //Tipo do gráfico
                 data: {
                     datasets: [{
-                        label: 'Umidade',
-                        type: 'line',
-                        borderColor: ['#45b3e7'],
-                        backgroundColor: ['#89cff0']
+                        label: 'Umidade', //Nome da legenda
+                        type: 'line', //Tipo do gráfico
+                        borderColor: ['#45b3e7'], //Cor da borda da linha do gráfico
+                        backgroundColor: ['#89cff0'] //Cor da linha do gráfico
                     }]
                 },
                 options: {
@@ -510,21 +511,21 @@
                         xAxes: [{
                             distribution: 'series',
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true //Começa em zero o eixo horizontal
                             }
                         }],
                         yAxes: [{
                             scaleLabel: {
-                                display: true,
-                                labelString: 'Umidade'
+                                display: true, //Deixa a mostra uma legenda para o eixo vertical do gráfico
+                                labelString: 'Umidade' //Nome da legenda
                             },
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true //Começa em zero o eixo vertical
                             }
                         }]
                     },
                     animation: {
-                        duration: 0
+                        duration: 0 //Define o tempo de duração das animações para 0
                     }
                 }
             }

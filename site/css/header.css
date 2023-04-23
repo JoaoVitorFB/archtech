@@ -31,7 +31,7 @@ header {
     width: 50%;
     list-style: none;
     display: flex;
-flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 
 
@@ -54,4 +54,8 @@ a,
     font-size: 18px;
     margin-left: 10px;
 
+}
+
+ul {
+    list-style: none;
 }

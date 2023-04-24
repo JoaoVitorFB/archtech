@@ -123,8 +123,6 @@ a,
     display: flex;
     align-items: center;
     justify-content: end;
-
-
 }
 
 #oProjeto .container #card1txt {
@@ -140,19 +138,15 @@ a,
     height: 450px;
     left: 10%;
     font-size: 17px;
-
 }
 
 #oProjeto .container #card2img {
     height: 580px;
     width: 75%;
-
     background-image: url(../assets/img_oProjeto.png);
     border-radius: 20px;
     background-repeat: no-repeat;
     align-items: center;
-
-
 }
 
 #oProjeto .container #card1txt h1 {
@@ -162,17 +156,19 @@ a,
 
 /* Comeca a calculadora */
 #calculadora {
-    height: 700px;
+    height: auto;
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 50px;
     background-color: #f4f2f3;
+    flex-direction: column;   
+      
 }
+
 
 #calculadora .container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 
 }
 
@@ -181,7 +177,7 @@ a,
     flex-direction: column;
     background-color: #08283B;
     width: 630px;
-    height: 370px;
+    height: auto;
     padding: 30px;
     border-radius: 20px;
 
@@ -226,13 +222,15 @@ a,
     border-radius: 20px;
     background-color: #F4F2F3;
     text-align: center;
+    font-size: 20px;
 }
 
-.iptlu {
+#calculadora .container .iptlu {
     width: 315px;
     height: 30px;
     border-radius: 20px;
     background-color: #F4F2F3;
+    font-size: 20px;
 
 }
 
@@ -252,7 +250,7 @@ a,
 
 #calculadora .container .resul {
     width: 650px;
-    height: 400px;
+    height: auto;
     background-color: #F4F2F3;
     border-radius: 20px;
     border: none;
@@ -334,16 +332,34 @@ a,
     padding-top: 30px;
 }
 
+#contato .container #box #conteudoBoxContato{
+    display: flex;
+    flex-direction: row;
+}
 
 #contato .container #box #infos {
     color: #3B578A;
     font-size: 25px;
     height: 390px;
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: aqua;
+}
+
+#contato .container #box #mapa{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+#contato .container #box #mapa #frameMaps {
+    width: 50%;
+    height: 390px;
+    position: absolute;
+    left: 45%;
+    border-radius: 20px;
+    border: 0;
 }
 
 .ctt_label {
@@ -364,7 +380,6 @@ a,
 }
 
 #ctt_titulo {
-    background-color: blueviolet;
     margin-bottom: 30px;
 }
 

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
-
+/* <Configurações padrao da pagina> */
 * {
     font-family: 'News Cycle', sans-serif;
 }
@@ -13,6 +13,7 @@ body {
     display: flex;
     margin: auto;
 }
+/* </Configurações padrao da pagina> */
 
 /* COMEÇO MAIN */
 
@@ -23,20 +24,20 @@ body {
 }
 
 .main .container {
-    height: 100%;
-    align-items: center;
     justify-content: center;
 }
 
-/* COMEÇO RETÂNGULO */
+/* <Retangulo> */
 
 .retangulo {
     display: flex;
     flex-direction: column;
     background: rgba(0, 0, 0, 0.3);
     width: 100%;
-    height: 70%;
     border-radius: 20px;
+    padding: 10px;
+    margin-top: 5%;
+     
 }
 
 .retangulo span {
@@ -46,18 +47,125 @@ body {
     font-weight: 700;
     font-size: 30px;
 }
-
-
+/* </Retangulo> */
+/* <Titulo e data> */
 .titulo {
-    margin-top: 50px;
-    margin-left: 30px;
+  display: flex;
+margin-left: 30px;
+justify-content: space-between;
+}
+.titulo #boxdata{
+background-color: #f4f2f3;
+width: 51.5%;
+border-radius: 20px;
+margin-bottom: 10px;
+text-align: center;
+color: rgb(100, 100, 100);
+}
+/* </Titulo e data> */
+
+
+/* <KPIS e grafico > */
+.dados{
+    display: flex;
+    justify-content: space-between;
+padding: 10px;
+        
+}
+#chave{
+    background-color: #f4f2f3;
+    border-radius: 20px;
+   
+}
+.graficos{
+    width: 50%;
+}
+.kpis{
+    display: flex;
+    flex-direction: row;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+width: 50%;
+height: 30vw;
+flex-wrap: wrap;
+padding: 10px;
+justify-content: center;
+align-items: center;
+margin-right: 10px;
+ 
+
 }
 
-#graficosApagados{
+.kpi{
+width: 12vw;
+height: 12vw;
+ padding: 10px;
+ margin-bottom: 50px;
+ background-color: #f4f2f3;
+ border-radius: 20px;
+ margin: 10px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-between;
+
+ /* </KPIS e grafico > */
+
+
+ /* <Configurações de KPI> */
+
+}.kpi h1,h2,h3,h4{
+    margin: 0px;
+}
+ .dados .kpis .containerkpi{
+    display: flex;
+  
+ }
+ /* <Cores da kpi fluxo minimio> */
+ #kpi1 h2{
+    color: red;
+ }
+ #kpi1 h4{
+    color: #71797E;
+ }
+ /* </Cores da kpi fluxo minimio> */
+
+
+/* <Cores da kpi fluxo maximo> */
+ #kpi2 h2{
+    color: green;
+ }
+ #kpi2 h4{
+    color: #71797E;
+
+ }
+   /* </Cores da kpi fluxo maximo> */
+
+
+   /* </Cores da kpi media> */
+  
+   #kpi3 h2{
+  
+ 
+    color: #08283B;
+
+ }
+ #kpi3 h4{
+    color: #71797E;
+
+ }
+ #kpi4 h2{
+  
+ 
+    color: #08283B;
+
+ }
+ #kpi4 h4{
+    color: #71797E;
+
+ }
+
+ #graficosApagados{
     display: none;
+    
 }
-
-
-/* FIM RETÂNGULO */
-
-/* FIM MAIN */

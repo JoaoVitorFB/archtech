@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
 
  
- 
+ html{
+    background-color: #1f1f1f;
+ }
 header{
     background-color: rgb(31, 31, 31);
 }
@@ -29,5 +31,8 @@ header #buttonsHeader a{
 #contato .container #ctt_titulo{
     color: #f4f2f3;
 }
+#conteudoBoxContato #infos *{
+    color: #3e82ff;
+} 
 
 /*FIM SOBRE NÓS*/

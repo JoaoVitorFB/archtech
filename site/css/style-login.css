@@ -42,6 +42,7 @@ display: flex;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
 
 }.box .container .caixacad ul{
@@ -168,3 +169,20 @@ input:checked+.slider:before {
 }
 
 /* FIM BOTÃO DARK MODE*/
+
+.box .container .caixacad button {
+    width: 150px;
+    height: 50px;
+    background: #3B578A;
+    border-radius: 20px;
+    font-family: 'News Cycle';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #f4f2f3;
+    border: 0;
+}
+
+.box .container .caixacad button:hover {
+    cursor: pointer;
+}

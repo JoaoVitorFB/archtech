@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/style-cadastro.css">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
     <title>ArchTech</title>
+    <script src="../js/script-cadastro.js"></script>
 </head>
 <header>
     <div class="container">
@@ -27,16 +28,20 @@
         <div class="container">
             <div class="caixacad">
                 <ul class="inputs">
-                    <li><span class="placehold">Nome:</span><input type="text"></li>
-                    <li><span class="placehold">Nome&nbspFantasia:</span><input type="text"></li>
-                    <li><span class="placehold">CNPJ:</span><input type="text"></li>
-                    <li><span class="placehold">Endereço:</span><input type="text"></li>
-                    <li><span class="placehold">Email:</span><input type="text"></li>
-                    <li><span class="placehold">Telefone:</span><input type="text"></li>
-                    <a href="https://google.com">
-                        <button class="btnDashboard">Realizar Cadastro</button>
-                    </a>
+                    <li><span class="placehold">Nome:</span><input type="text" id="iptNome"></li>
+                    <li><span class="placehold">Nome&nbspFantasia:</span><input type="text" id="iptNomeFantasia"></li>
+                    <li><span class="placehold">CNPJ:</span><input type="text" minlength="14" maxlength="14" id="iptCNPJ"></li>
+                    <li><span class="placehold">Telefone:</span><input type="text" minlength="10" maxlength="10" id="iptTelefone"></li>
+                    <div class="cepnumero">
+                        <li id="CEP"><span class="placehold">CEP:</span><input type="text" minlength="8" maxlength="8" id="iptCEP"></li>
+                        <li id="numero"><span class="placehold">Número:</span><input type="text" id="iptNumero"></li>
+                    </div>
+                    <li><span class="placehold">Endereço:</span><input type="text" id="iptEndereco"></li>
+                    <li><span class="placehold">Email:</span><input type="email" id="iptEmail"></li>
+                    <li><span class="placehold">Senha:</span><input type="password" id="iptSenha"></li>
+                    <li><span class="placehold">Repita&nbspa&nbspsenha:</span><input type="password" id="iptConfirmarSenha"></li>
                 </ul>
+                <button onclick="validar()">Cadastrar</button>
             </div>
         </div>
     </div>

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style-login.css">
     <div id="darkmodelink"></div>
-    <title>ArchTech - Login</title>
+
+    <title>ArchTech</title>
+    <script src="../js/script-login.js"></script>
 </head>
 <header>
 
@@ -42,6 +44,7 @@
         <div class="container">
             <div class="caixacad">
                 <ul class="inputs">
+<<<<<<< HEAD
                     <li><span class="placehold">Usuário: </span><input type="text"></li>
                     <li><span class="placehold">Senha:</span><input type="text"></li>
                    <span onclick="alertasenha()" id="senhaesq" >Esqueceu&nbspa&nbspsenha?</span> 
@@ -49,8 +52,13 @@
                         <button class="btnDashboard">Login</button>
                     </a>
                     
+=======
+                    <li><span class="placehold">Usuário: </span><input type="text" id="iptUsuario"></li>
+                    <li><span class="placehold">Senha:</span><input type="password" id="iptSenha"></li>
+                    <span id="senhaesq">Esqueceu a senha?</span>
+>>>>>>> 62b96c162afdfbd98efabffbe657adace20ed11a
                 </ul>
-                
+                <button onclick="verificar()">Login</button>
             </div>
             
         </div>

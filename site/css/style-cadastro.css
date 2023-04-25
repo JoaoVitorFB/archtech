@@ -91,6 +91,18 @@ margin-left: 5px;
     display: flex;
     align-items: center;
 }
+.btnDashboard {
+    width: 180px;
+    background: #3B578A;
+    border-radius: 20px;
+   
+  
+ 
+    font-size: 18px;
+    color: #f4f2f3;
+    border: 0;
+}
+ 
 
 .box .container .caixacad .inputs .placehold {
     margin-left: 10px;
@@ -113,13 +125,13 @@ margin-left: 5px;
 }
 
 .box .container .caixacad button {
-    width: 150px;
-    height: 50px;
+    width: 200px;
+  
     background: #3B578A;
     border-radius: 20px;
     font-family: 'News Cycle';
     font-style: normal;
-    font-weight: 700;
+ 
     font-size: 20px;
     color: #f4f2f3;
     border: 0;

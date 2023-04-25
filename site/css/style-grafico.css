@@ -58,7 +58,7 @@ justify-content: space-between;
 }
 .titulo #boxdata{
 background-color: #f4f2f3;
-width: 61.5%;
+width: 51.5%;
 border-radius: 20px;
 margin-bottom: 10px;
 text-align: center;
@@ -80,7 +80,7 @@ padding: 10px;
    
 }
 .graficos{
-    width: 60%;
+    width: 50%;
 }
 .kpis{
     display: flex;

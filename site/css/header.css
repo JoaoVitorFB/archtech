@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
  * {
     font-family: 'News Cycle', sans-serif;
+    list-style: none;
 }
 
 body {
@@ -44,6 +45,10 @@ header #buttonsHeader   {
     display: flex;
     justify-content: space-around;
     
+}
+header #buttonsHeader a:hover {
+    transition: 0.1s;
+  border-bottom: solid 3px #2e79ff;
 }
  
 a,

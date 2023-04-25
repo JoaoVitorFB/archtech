@@ -64,7 +64,7 @@ display: flex;
     background-color: transparent;
     border: none;
 margin-left: 5px;
-    font-size: 22px;
+    font-size: 18px;
  color: #F4F2F3;
     width: 300px;
 }
@@ -81,11 +81,20 @@ align-items: center;
     
 }
 .box .container .caixacad .inputs .placehold{
-    margin-left: 10px;
- font-size: 22px;
+    margin-left: 5px;
+ font-size: 18px;
     margin-bottom: 0px;
     line-break:normal;
 }
-#senhaesq{
+.btnDashboard {
+    width: 180px;
+    background: #3B578A;
+    border-radius: 20px;
+   
+  
  
+    font-size: 18px;
+    color: #f4f2f3;
+    border: 0;
 }
+ 

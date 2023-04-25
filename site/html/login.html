@@ -5,16 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style-login.css">
-    <title>ArchTech</title>
+    <div id="darkmodelink"></div>
+    <title>ArchTech - Login</title>
 </head>
 <header>
+
     <div class="container">
-        <img id="logoHeader" src="../assets/logo.png">
-     
-            <li><a href="../index.html">Sair</a></li>
-        
+       
+        <span id="logochange">
+            <img id="logoHeader" src="../assets/logo.png">
+        </span>
+        <ul id="buttonsHeader">
+            <li><a href="#">Home</a></li>
+            <li><a href="../index.html#oProjeto">Projeto</a></li>
+            <li><a href="../index.html#calculadora">Simule Aqui</a></li>
+            <li><a href="../index.html#contato">Contato</a></li>
+            <li><a href="../index.html#sobreNos">Sobre Nós</a></li>
+            <li><a href="html/login.html">Login</a></li>
+        </ul>
+        <label class="switch">
+            <input onchange="ativarDarkmode()" type="checkbox">
+            <span class="slider round"></span>
+        </label>
     </div>
 </header>
 
@@ -28,12 +44,42 @@
                 <ul class="inputs">
                     <li><span class="placehold">Usuário: </span><input type="text"></li>
                     <li><span class="placehold">Senha:</span><input type="text"></li>
-                    <span id="senhaesq">Esqueceu a senha?</span>
+                   <span onclick="alertasenha()" id="senhaesq" >Esqueceu&nbspa&nbspsenha?</span> 
+                    <a href="dashboardEmpresa.html">
+                        <button class="btnDashboard">Login</button>
+                    </a>
+                    
                 </ul>
                 
             </div>
+            
         </div>
     </div>
 </body>
 
 </html>
+
+<script>
+     darkmode = `<link rel="stylesheet" href="../css/style-dark.css">`
+    lightmode = ``
+    modo = lightmode
+    function alertasenha() {
+        alert(`Entre em contato com os administradores pelo email: suporte@archtech.com`)
+        
+    }
+    function ativarDarkmode() {
+
+if (modo == lightmode) {
+    modo = darkmode
+  
+    darkmodelink.innerHTML = modo
+
+} else if (modo == darkmode) {
+    modo = lightmode
+  
+    darkmodelink.innerHTML = modo
+    console.log('deu')
+
+}
+}
+</script>

@@ -3,7 +3,9 @@
 * {
     font-family: 'News Cycle', sans-serif;
 }
-
+li{
+    list-style: none;
+}
 body {
     margin: 0;
 }

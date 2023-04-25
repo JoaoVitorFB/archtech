@@ -53,11 +53,13 @@ button:hover {
 .input {
     border-bottom: solid 2px #F4F2F3;
     color: #F4F2F3;
-    width: 330px;
+    width: 150px;
     margin-bottom: 0px;
     display: flex;
     align-items: center;
-    font-size: 30px;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .placeholder {  
@@ -92,6 +94,17 @@ input:focus{
     font-size: 25px;
     color: #f4f2f3;
     border: 0;
+}
+#selectMes{
+font-size: 22px;
+border: none;
+background: transparent;
+color: #F4F2F3;
+padding: 0px;
+ text-align: right;
+}
+#selectMes:focus{
+    color: #3B578A;
 }
 
 /* FIM RETÂNGULO */

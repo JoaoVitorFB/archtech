@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <div id="darkmodelink">
-        <link rel="stylesheet" href="css/style.css">
-    </div>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <div id="darkmodelink"></div>
     <title>ArchTech</title>
 </head>
 <header>
@@ -27,7 +26,7 @@
             <li><a href="#calculadora">Simule Aqui</a></li>
             <li><a href="#contato">Contato</a></li>
             <li><a href="#sobreNos">Sobre Nós</a></li>
-            <li><a href="html/debuglogin.html">Login</a></li>
+            <li><a href="html/login.html">Login</a></li>
         </ul>
     </div>
 </header>
@@ -97,7 +96,7 @@
                     <div id="infos">
                         <div class="ctt_label" id="ctt_email">
                             <img src="assets/iconeEmail.png">
-                            <p>archtech@contato.com</p>
+                            <p>contato@archtech.com</p>
                         </div>
                         <div class="ctt_label" id="ctt_telefone">
                             <img src="assets/iconeTelefone.png">
@@ -139,7 +138,7 @@
 </html>
 <script>
     darkmode = `<link rel="stylesheet" href="css/style-dark.css">`
-    lightmode = `<link rel="stylesheet" href="css/style.css">`
+    lightmode = ``
     modo = lightmode
     function calcular() {
         //Declaração de variaveis
@@ -186,12 +185,12 @@
 
         if (modo == lightmode) {
             modo = darkmode
-            logochange.innerHTML = `<img id="logoHeader" src="assets/logopreta.png">`
+          
             darkmodelink.innerHTML = modo
 
         } else if (modo == darkmode) {
             modo = lightmode
-            logochange.innerHTML = `<img id="logoHeader" src="assets/logo.png">`
+          
             darkmodelink.innerHTML = modo
             console.log('deu')
 

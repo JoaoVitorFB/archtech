@@ -17,8 +17,8 @@
             <input onchange="ativarDarkmode()" type="checkbox">
             <span class="slider round"></span>
         </label>
-        <span id="logochange">
-            <img id="logoHeader" src="assets/logo.png">
+        <span id="logoChange">
+            <img id="logoHeader" src="assets/logoHorizontalPreta.png">
         </span>
         <ul id="buttonsHeader">
             <li><a href="#">Home</a></li>
@@ -123,7 +123,7 @@
     <div id="sobreNos">
         <div class="container">
             <div id="logoSobreNos">
-                <img src="assets/logoQuadrada.png">
+                <img id="imgSobreNos" src="assets/logoQuadradaPreta.png">
             </div>
             <div id="textoSobreNos">
                 <h1>Sobre Nós</h1>
@@ -185,14 +185,16 @@
 
         if (modo == lightmode) {
             modo = darkmode
-          
             darkmodelink.innerHTML = modo
-
+            logoChange.innerHTML = `<img id="logoHeader" src="assets/logoHorizontalBranca.png">`
+            logoSobreNos.innerHTML = `<img id="imgSobreNos" src="assets/logoQuadradaBranca.png">`
         } else if (modo == darkmode) {
             modo = lightmode
           
             darkmodelink.innerHTML = modo
             console.log('deu')
+            logoChange.innerHTML = `<img id="logoHeader" src="assets/logoHorizontalPreta.png">`
+            logoSobreNos.innerHTML = `<img id="imgSobreNos" src="assets/logoQuadradaPreta.png">`
 
         }
     }

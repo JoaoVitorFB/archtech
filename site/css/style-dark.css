@@ -33,6 +33,15 @@ header #buttonsHeader a{
 }
 #conteudoBoxContato #infos *{
     color: #3e82ff;
-} 
+}
+
+#textoSobreNos{
+    color: #f4f2f3;
+}
+
+#logoHeader{
+    width: 200px;
+    height: 57px;
+}
 
 /*FIM SOBRE NÓS*/

@@ -43,7 +43,7 @@ body {
 }
 
 .retangulo span {
-    color: rgba(62, 130, 255, 1);
+    color: #3e82ff;
     font-family: 'News Cycle';
     font-style: normal;
     font-weight: 700;
@@ -74,14 +74,18 @@ color: rgb(100, 100, 100);
 padding: 10px;
         
 }
-#chave{
-    background-color: #f4f2f3;
-    border-radius: 20px;
-   
-}
+
 .graficos{
     width: 50%;
 }
+
+.can_grafico{
+    background-color: #f4f2f3;
+    border-radius: 20px;
+    height: 0;
+    
+}
+
 .kpis{
     display: flex;
     flex-direction: row;

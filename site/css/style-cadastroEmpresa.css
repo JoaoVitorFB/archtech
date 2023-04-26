@@ -139,4 +139,5 @@ margin-left: 5px;
 
 .box .container .caixacad button:hover {
     cursor: pointer;
+    border:solid 5px  #476cb0;
 }

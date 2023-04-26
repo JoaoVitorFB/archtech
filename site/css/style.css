@@ -74,6 +74,11 @@ header #buttonsHeader a:hover {
   border-bottom: solid 3px #2e79ff;
 }
 
+#logoHeader{
+    width: 200px;
+    height: 57px;
+}
+
 /*FIM CABEÇALHO*/
 
 /*HOME*/

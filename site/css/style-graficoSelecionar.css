@@ -55,7 +55,7 @@ button:hover {
 .input {
     border-bottom: solid 2px #F4F2F3;
     color: #F4F2F3;
-    width: 150px;
+    width: 210px;
     margin-bottom: 0px;
     display: flex;
     align-items: center;
@@ -78,7 +78,7 @@ input {
     margin-left: 5px;
     font-size: 20px;
     color: #F4F2F3;
-    width: 250px;
+    width: 300px;
 }
 
 input:focus{

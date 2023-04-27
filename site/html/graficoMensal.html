@@ -29,7 +29,7 @@
             <div class="retangulo">
                 <div class="titulo">
                     <span>Fluxo de pessoas do corredor 1</span>
-                    <span id="boxdata">Data: 17/10/2023</span>
+                    <span id="boxdata">Mês: Março</span>
                 </div>
 
                 <div class="dados">
@@ -38,14 +38,14 @@
                             <div class="containerkpi">
                             <div id="kpi1" class="kpi">
                         <h1> Fluxo Minímo</h1>
-                        <h2>40</h2>  
-                        <h4>Horário: 9:00</h4>  
+                        <h2>632</h2>  
+                        <h4>Data: 16/03/2023</h4>  
                             </div>
 
                             <div id="kpi2" class="kpi"> 
                                 <h1> Fluxo Máximo</h1>
-                                <h2>40</h2>  
-                                <h4>Horário: 9:00</h4> 
+                                <h2>750</h2>  
+                                <h4>Data: 04/03/2023</h4> 
                             </div>
                             
                         </div>
@@ -54,12 +54,12 @@
                             <div class="containerkpi">
                             <div id="kpi3" class="kpi"> 
                                 <h1>Média</h1>
-                                <h2>40</h2>  
+                                <h2>706.19</h2>  
                                 <h4></h4>  
                             </div>
                             <div id="kpi4" class="kpi"> 
                                 <h1>Mediana</h1>
-                                <h2>40</h2>  
+                                <h2>691</h2>  
                                 <h4></h4>  
                             </div>
                         </div>
@@ -104,15 +104,15 @@
 </html>
 <script>
 const infosMes = {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
+            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'],
             datasets: [{
-                label: 'Temperatura',
-                data: [30, 29, 28, 25, 22, 23],
+                label: 'Pessoas',
+                data: [656, 690, 722, 750, 748, 733, 634, 736, 652, 648, 744, 749, 698, 710, 731, 632, 677, 743, 736, 675, 652, 661, 691, 729, 743, 739, 662, 654, 695, 633, 692],
                 borderWidth: 1,
-                borderColor: '#FF6384',
-                backgroundColor: '#FF6384'
+                borderColor: '#3e82ff',
+                backgroundColor: '#3e82ff'
             }]
         },
         options: {
@@ -194,7 +194,7 @@ const infosMes = {
                             labelString: 'Luminosidade'
                         },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: false
                         }
                     }]
                 },

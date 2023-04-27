@@ -1,10 +1,10 @@
 const admin = {
-    usuario: "Hideki",
+    usuario: "Admin",
     senha: "archtech"
 }
 
 const usuario = {
-    usuario: "Brandão",
+    usuario: "Brandao",
     senha: "sptech"
 }
 

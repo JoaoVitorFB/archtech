@@ -34,7 +34,7 @@ body {
 .box .container .caixacad {
 
     background: rgba(0, 0, 0, 0.5);
-    height: 700px;
+    height:400px;
     width: 100%;
     margin-top: 6%;
     margin-bottom: 6%;
@@ -140,4 +140,21 @@ margin-left: 5px;
 .box .container .caixacad button:hover {
     cursor: pointer;
     border:solid 5px  #476cb0;
+}
+
+#empresaSelect:focus{
+    color: #3B578A;
+}
+#representanteSelect{
+    background: transparent;
+    color: #F4F2F3;
+    border:none;
+    font-size: 18px;
+}
+#representanteinput{
+    display: flex;
+justify-content: space-between;
+}
+#representanteSelect:focus{
+    color: #3B578A;
 }

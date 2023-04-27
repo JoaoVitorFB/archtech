@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/style-cadastroEmpresa.css">
+    <link rel="stylesheet" href="../css/style-cadastroRepresentante.css">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
     <title>ArchTech</title>
-    <script src="../js/script-cadastro.js"></script>
+    <script src="../js/script-cadastroRepresentante.js"></script>
 </head>
 <header>
     <div class="container">
@@ -23,23 +23,27 @@
 <body>
     <div class="box">
         <span class="titulo">
-            <h2>Cadastro de Empresa</h2>
+            <h2>Cadastro de Representante </h2>
         </span>
         <div class="container">
             <div class="caixacad">
                 <ul class="inputs">
                     <li><span class="placehold">Nome:</span><input type="text" id="iptNome"></li>
-                    <li><span class="placehold">Nome&nbspFantasia:</span><input id="iptNomeFantasia" type="text"></li>
-                    <li><span class="placehold">CNPJ:</span><input id="iptCNPJ"type="text"></li>
-                    <li><span class="placehold">Endereço:</span><input id="iptEndereco" type="text"></li>
-                    <li><span class="placehold">CEP:</span><input id="iptCEP" type="text"></li>
-                    <li><span class="placehold">Número:</span><input id="iptNumero" type="text"></li>
                     <li><span class="placehold">Email:</span><input id="iptEmail"type="text"></li>
                     <li><span class="placehold">Telefone:</span><input id="iptTelefone" type="text"></li>
-                    <a href="https://google.com">
-                    </a>
+                    <li id="representanteinput"><span class="placehold">Empresa:</span>
+                        <select name="representante" id="representanteSelect">
+                            <option value="representante1">SpTech</option>
+                            <option value="representante2">Cercadão</option>
+                            <option value="representante3">Rod Raf</option>
+                     
+                        </select></li>
+                 
+                    
                 </ul>
+                <a href="">
                 <button onclick="validar()" class="btnDashboard">Realizar Cadastro</button>
+            </a>
             </div>
         </div>
     </div>

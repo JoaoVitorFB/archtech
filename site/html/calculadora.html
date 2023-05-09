@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+    Se interessou no nosso projeto?
+    Calcule aqui o percentual de aumento de lucro!
+    Quantos corredores seu supermercado possui? <input class="iptnum" id="ipt_corredoresTotais">
+    Em quantos corredores você deseja instalar? <input class="iptnum" id="ipt_corredoresInstalados">
+    Qual seu lucro mensal? <input class="iptlu" id="ipt_lucro">
+
+    <button id="btn_calcular" onclick="calcular()">CALCULAR</button><br>
+
+
+    <b><span id="p_retorno"></div>
+
+</body>
+
+
+
+</html>
+<script>
+    function calcular() {
+        //Declaração de variaveis
+        var corredoresTotais = Number(ipt_corredoresTotais.value);
+        var corredoresInstalados = Number(ipt_corredoresInstalados.value);
+        var lucro = Number(ipt_lucro.value)
+        var porcLucro = (corredoresInstalados * 0.33) / corredoresTotais
+        if (corredoresInstalados == corredoresTotais) {
+
+            p_retorno.innerHTML = `Seu lucro aumentará em até 33%, chegando em R$${lucro + (lucro * 0.33)} mensais.`
+
+        }
+        if (corredoresInstalados < corredoresTotais) {
+            p_retorno.innerHTML = `Seu lucro aumentará em até ${porcLucro * 100}%, chegando em R$${lucro + (lucro * porcLucro)} mensais.<br>`
+            p_retorno.innerHTML += `Caso instalasse em todos os corredores, seu lucro aumentaria em até 33%, chegando em R$${lucro + (lucro * 0.33)} mensais.`
+        }
+        //Validações de campo vazio e campos irregulares
+        if (ipt_corredoresTotais.value == "") {
+            alert(`Digite a quantidade de corredores totais`)
+            p_retorno.innerHTML = "ERRO"
+        }
+        else {
+            if (ipt_corredoresInstalados.value == "") {
+                alert(`Digite a quantidade de corredores para instalar`)
+                p_retorno.innerHTML = "ERRO"
+            }
+            else if (ipt_lucro.value == "") {
+                alert(`Digite o lucro`)
+                p_retorno.innerHTML = "ERRO"
+            }
+            else if (corredoresInstalados > corredoresTotais) {
+                alert(`O valor de corredores que você deseja instalar é maior ao número total de corredores`)
+                p_retorno.innerHTML = "ERRO"
+            }
+        }
+    }
+  //Validações terminam aqui
+</script>

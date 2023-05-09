@@ -9,7 +9,7 @@ CREATE TABLE empresa (
   emp_cnpj CHAR(14) NULL,
   emp_endereco VARCHAR(45) NULL,
   emp_email VARCHAR(45) NULL,
-  emp_telefone CHAR(8) NULL,
+  emp_telefone CHAR(10) NULL,
   PRIMARY KEY (emp_idEmpresa));
 
 
@@ -18,7 +18,7 @@ CREATE TABLE representante (
   emp_idEmpresa INT,
   rpt_idRepresentante INT AUTO_INCREMENT,
   rpt_nome VARCHAR(45) NULL,
-  rpt_telefone VARCHAR(45) NULL,
+  rpt_telefone VARCHAR(12) NULL,
   rpt_email VARCHAR(45) NULL,
   PRIMARY KEY (rpt_idRepresentante)
 	);
@@ -59,9 +59,10 @@ ALTER TABLE representante ADD FOREIGN KEY (emp_idEmpresa) REFERENCES empresa (em
 ALTER TABLE usuario ADD FOREIGN KEY (rpt_idRepresentante) REFERENCES representante (rpt_idRepresentante);
 ALTER TABLE gondola ADD FOREIGN KEY (emp_idEmpresa) REFERENCES empresa (emp_idEmpresa);
 ALTER TABLE dados ADD FOREIGN KEY (gnd_idGondola) REFERENCES archtech.gondola (gnd_idGondola);
-ALTER TABLE representante ADD PRIMARY KEY (emp_idEmpresa);
+
 
 DESC empresa;
+
 DESC representante;
 DESC gondola;
 DESC dados;

@@ -46,11 +46,12 @@ void loop()
   int chave = digitalRead(7);
   if (chave == 0)  
   {  
-    Serial.print("1");  
+    Serial.print(1);  
+  
   }  
   else  
   {  
-    Serial.print("0");  
+    Serial.print(0);  
   }
 
   Serial.println();

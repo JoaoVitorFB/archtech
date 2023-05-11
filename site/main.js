@@ -53,7 +53,7 @@ const serial = async (
 
         if (HABILITAR_OPERACAO_INSERIR) {
             await poolBancoDados.execute(
-                'INSERT INTO sensores (chave) VALUES (?)',
+                'INSERT INTO sensores (chave, data, horaInicio, horaFim) VALUES (?, CURDATE(),TIMEDIFF(TIME(CURRENT_TIMESTAMP()), "01:00:00"),NOW())',
                 [chave]
             );
         }

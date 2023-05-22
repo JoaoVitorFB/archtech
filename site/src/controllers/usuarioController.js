@@ -1,3 +1,4 @@
+
 var usuarioModel = require("../models/usuarioModel");
 
 var sessoes = [];

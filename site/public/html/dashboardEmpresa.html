@@ -18,7 +18,7 @@
         <li><a onclick="limparSessao()">Sair</a></li>  
     </div>
 </header>
-<body onload="validarSessao(), atualizacaoPeriodica()">
+<body onload="validarSessao()">
     <div class="main">
         <div class="container">
             <div class="retangulo">
@@ -38,5 +38,5 @@
 </body>
 </html>
 <script>
-    nomeEmpresa.innerHTML = sessionStorage.NOME_USUARIO;
+    nomeEmpresa.innerHTML = sessionStorage.LOGIN_USUARIO;
 </script>

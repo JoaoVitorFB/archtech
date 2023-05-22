@@ -1,4 +1,3 @@
-DROP DATABASE archtech;
 CREATE DATABASE archtech;
 USE archtech ;
 
@@ -7,14 +6,17 @@ CREATE TABLE empresa (
   emp_nome VARCHAR(45),
   emp_nomeFantasia VARCHAR(45),
   emp_cnpj CHAR(14),
-  emp_endereco VARCHAR(45),
+  emp_logradouro VARCHAR(100),
+  emp_numlogradouro INT,
+  emp_CEP CHAR(8),
   emp_email VARCHAR(45),
-  emp_telefone CHAR(8),
+  emp_telefone CHAR(10),
+  emp_telefoneCelular CHAR(11),
   PRIMARY KEY (emp_idEmpresa)
 );
 
 CREATE TABLE representante (
-  rpt_idRepresentante INT,
+  rpt_idRepresentante INT AUTO_INCREMENT,
   rpt_nome VARCHAR(45),
   rpt_celular CHAR(11),
   rpt_email VARCHAR(45),

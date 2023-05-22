@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
+
+* {
+    font-family: 'News Cycle', sans-serif;
+
+}
+
+html{
+    background-color: #F4F2F3;
+ }
+
+body {
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+
+/*CABEÇALHO*/
+
+#title {
+    margin: 0;
+    color: #32b0cd;
+}
+
+header {
+    width: 100%;
+    height: 90px;
+    background-color: #f4f2f3;
+    display: flex;
+}
+
+#buttonsHeader {
+    width: 50%;
+    list-style: none;
+    display: flex;
+
+}
+
+
+header .container {
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #buttonsHeader {
+    display: flex;
+    justify-content: space-around;
+}
+
+a,
+#buttonsHeader {
+    text-decoration: none;
+    font-weight: bold;
+    color: #08283B;
+    font-size: 18px;
+    margin-left: 10px;
+   
+
+}
+header #buttonsHeader a:hover {
+    transition: 0.1s;
+  border-bottom: solid 3px #2e79ff;
+}
+
+#logoHeader{
+    width: 200px;
+    height: 57px;
+}
+
+/*FIM CABEÇALHO*/
+
+/*HOME*/
+
+#home {
+    display: flex;
+    background-color: #08283B;
+    background-image: url(../assets/backHome.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+#home .container {
+    display: flex;
+    flex-direction: column;
+    height: 570px;
+    align-items: end;
+    justify-content: center;
+
+
+}
+
+#home .container p {
+    display: flex;
+    justify-content: end;
+    font-size: 35px;
+    text-align: justify;
+    color: #F4F2F3;
+}
+
+#home .container h1 {
+    color: #3E82FF;
+    font-size: 40px;
+    text-align: left;
+    font-weight: lighter;
+}
+
+#textHome {
+    width: 70%;
+}
+
+/*FIM HOME*/
+
+/*O PROJETO*/
+
+#oProjeto {
+    height: 700px;
+    background-color: #f4f2f3;
+    display: flex;
+
+}
+
+#oProjeto .container {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#oProjeto .container #card1txt {
+    background-color: #08283B;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    color: #f4f2f3;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: justify;
+    position: absolute;
+    height: 450px;
+    left: 10%;
+    font-size: 17px;
+}
+
+#oProjeto .container #card2img {
+    height: 580px;
+    width: 75%;
+    background-image: url(../assets/img_oProjeto.png);
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+
+#oProjeto .container #card1txt h1 {
+    color: #3E82FF;
+    margin: 0;
+}
+
+/* Comeca a calculadora */
+#calculadora {
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    background-color: #f4f2f3;
+    flex-direction: column;   
+      
+}
+
+
+#calculadora .container {
+    display: flex;
+    justify-content: center;
+
+}
+
+#calculadora .container #caixa {
+    display: flex;
+    flex-direction: column;
+    background-color: #08283B;
+    width: 630px;
+    height: auto;
+    padding: 30px;
+    border-radius: 20px;
+
+}
+
+#calculadora .container span {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    color: #F4F2F3;
+}
+
+#calculadora .container h1 {
+    color: #08283B;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0px;
+    margin-bottom: 12px;
+}
+
+#calculadora .container h2 {
+    color: #08283B;
+    font-weight: bold;
+    font-size: 25px;
+    margin: 0px;
+    margin-bottom: 30px;
+
+}
+
+#calculadora .container #caixa span {
+    color: #F4F2F3;
+    margin-left: 10px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+
+}
+
+#calculadora .container .iptnum {
+    width: 75px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #F4F2F3;
+    text-align: center;
+    font-size: 20px;
+}
+
+#calculadora .container .iptlu {
+    width: 315px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #F4F2F3;
+    font-size: 20px;
+
+}
+
+
+#calculadora .container #caixa #btn_calcular {
+    border-radius: 50px;
+    background-color: #3E82FF;
+    color: #F4F2F3;
+    font-size: 20px;
+    font-weight: bold;
+    align-self: center;
+    border: none;
+    width: 200px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+#calculadora .container .resul {
+    width: 650px;
+    height: auto;
+    background-color: #F4F2F3;
+    border-radius: 20px;
+    border: none;
+    align-self: center;
+}
+
+
+
+#calculadora .container #caixa .resul span {
+    display: flex;
+    margin: 0;
+    color: rgb(65, 109, 0);
+    font-size: 25px;
+    font-weight: bold;
+    align-self: center;
+    text-align: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.camposCalc{
+    padding-bottom: 10px;
+}
+
+/* Debug login */
+.debugbox .container #card1 {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.debugbox .container #card1 button {
+    width: 300px;
+    height: 100px;
+    background: #3B578A;
+    border-radius: 20px;
+    font-family: 'News Cycle';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+.debugbox {
+    background-image: url(../assets/backHome.png);
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+.preenchimento {
+    display: flex;
+
+    height: 30vh;
+    width: 100%;
+    background-color: #08283B;
+
+}
+
+/*CONTATO*/
+
+#contato {
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #08283B;
+    color: #08283B;
+}
+
+#contato .container #box {
+    width: 100%;
+    height: 600px;
+    background-color: #f4f2f3;
+    border-radius: 20px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+#contato .container #box #conteudoBoxContato{
+    display: flex;
+    flex-direction: row;
+}
+
+#contato .container #box #infos {
+    color: #3B578A;
+    font-size: 25px;
+    height: 390px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#contato .container #box #mapa{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+
+#contato .container #box #mapa #frameMaps {
+    width: 50%;
+    height: 390px;
+    position: absolute;
+    left: 45%;
+    border-radius: 20px;
+    border: 0;
+}
+
+.ctt_label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ctt_label img {
+    width: 40px;
+    height: 40px;
+    margin-right: 30px;
+}
+
+#ctt_email img {
+    width: 45px;
+    height: 33px;
+}
+
+#ctt_titulo {
+    margin-bottom: 30px;
+}
+
+#ctt_titulo h1 {
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+#ctt_titulo p {
+    font-size: 20px;
+}
+
+/*FIM CONTATO*/
+
+/*SOBRE NÓS*/
+
+#sobreNos {
+    height: 700px;
+    display: flex;
+    align-items: center;
+    background-color: #F4F2F3;
+    color: #08283B;
+}
+
+.container #logoSobreNos {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.container #textoSobreNos {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    flex-direction: column;
+    text-align: justify;
+
+}
+
+.container #textoSobreNos h1 {
+    margin: 0;
+}
+
+
+/*FIM SOBRE NÓS*/
+
+/* BOTAO DARKMODE */
+/* The switch - the box around the slider */
+.switch {
+    position: absolute;
+    display: flex;
+    align-self: center;
+    width: 60px;
+    height: 34px;
+    right: 2%;
+
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(0, 0, 0);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: rgb(41, 38, 38);
+}
+
+
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: #F4F2F3;
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+    background-color: black;
+}
+
+/* FIM BOTÃO DARK MODE*/

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=News+Cycle&display=swap');
+
+ 
+ html{
+    background-color: #1f1f1f;
+ }
+header{
+    background-color: rgb(31, 31, 31);
+}
+#oProjeto{
+    background-color: rgb(31, 31, 31);
+}
+#calculadora {
+    background-color: rgb(31, 31, 31);
+
+}
+#calculadora .container #tituloCalc *{
+   color:#f4f2f3;
+}
+ 
+#sobreNos{
+    background-color: rgb(31, 31, 31);
+
+}
+header #buttonsHeader a{
+    color: #f4f2f3;
+}
+#contato .container #box{
+    background-color: rgb(31, 31, 31);
+}
+#contato .container #ctt_titulo{
+    color: #f4f2f3;
+}
+#conteudoBoxContato #infos *{
+    color: #3e82ff;
+}
+
+#textoSobreNos{
+    color: #f4f2f3;
+}
+
+#logoHeader{
+    width: 200px;
+    height: 57px;
+}
+
+/*FIM SOBRE NÓS*/

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/style-login.css">
+    <div id="darkmodelink"></div>
+
+    <title>ArchTech</title>
+</head>
+<header>
+    <div class="container">
+       
+        <span id="logochange">
+            <img id="logoHeader" src="../assets/logo.png">
+        </span>
+        <ul id="buttonsHeader">
+            <li><a href="#">Home</a></li>
+            <li><a href="../index.html#oProjeto">Projeto</a></li>
+            <li><a href="../index.html#calculadora">Simule Aqui</a></li>
+            <li><a href="../index.html#contato">Contato</a></li>
+            <li><a href="../index.html#sobreNos">Sobre Nós</a></li>
+            <li><a href="html/login.html">Login</a></li>
+        </ul>
+        <label class="switch">
+            <input onchange="ativarDarkmode()" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</header>
+
+<body>
+    <div class="box">
+        <span class="titulo">
+            <h2>Login</h2>
+        </span>
+        <div class="container">
+            <div class="caixacad">
+                <ul class="inputs">
+                    <li><span class="placehold">Usuário: </span><input autofocus type="text" id="iptUsuario"></li>
+                    <li><span class="placehold">Senha:</span><input  type="password" id="iptSenha"></li>
+                    <span id="senhaesq">Esqueceu a senha?</span>
+                </ul>
+                <button onclick="entrar()">Login</button>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+     
+        var emailVar = iptUsuario.value;
+        var senhaVar = iptSenha.value;
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "dashboardEmpresa.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+</script>
+
+<script>
+     darkmode = `<link rel="stylesheet" href="../css/style-dark.css">`
+    lightmode = ``
+    modo = lightmode
+    function alertasenha() {
+        alert(`Entre em contato com os administradores pelo email: suporte@archtech.com`)
+        
+    }
+    function ativarDarkmode() {
+
+if (modo == lightmode) {
+    modo = darkmode
+  
+    darkmodelink.innerHTML = modo
+
+} else if (modo == darkmode) {
+    modo = lightmode
+  
+    darkmodelink.innerHTML = modo
+    console.log('deu')
+
+}
+}
+</script>

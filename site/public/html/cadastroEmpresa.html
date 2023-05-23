@@ -14,9 +14,9 @@
 <header>
     <div class="container">
         <img id="logoHeader" src="../assets/logo.png">
-        
-            <li><a href="../index.html">Sair</a></li>
-       
+
+        <li><a href="../index.html">Sair</a></li>
+
     </div>
 </header>
 
@@ -30,19 +30,99 @@
                 <ul class="inputs">
                     <li><span class="placehold">Nome:</span><input type="text" id="iptNome"></li>
                     <li><span class="placehold">Nome&nbspFantasia:</span><input id="iptNomeFantasia" type="text"></li>
-                    <li><span class="placehold">CNPJ:</span><input maxlength="14" id="iptCNPJ"type="text"></li>
-                    <li><span class="placehold">Endereço:</span><input id="iptEndereco" type="text"></li>
+                    <li><span class="placehold">CNPJ:</span><input maxlength="14" id="iptCNPJ" type="text"></li>
+                    <li><span class="placehold">Endereço:</span><input id="iptLogradouro" type="text"></li>
+                    <li><span class="placehold">Número:</span><input id="iptNumLogradouro" type="text"></li>
                     <li><span class="placehold">CEP:</span><input maxlength="8" id="iptCEP" type="text"></li>
-                    <li><span class="placehold">Número:</span><input id="iptNumero" type="text"></li>
-                    <li><span class="placehold">Email:</span><input id="iptEmail"type="text"></li>
+                    <li><span class="placehold">Email:</span><input id="iptEmail" type="text"></li>
                     <li><span class="placehold">Telefone:</span><input maxlength="10" id="iptTelefone" type="text"></li>
+                    <li><span class="placehold">Celular:</span><input maxlength="11" id="iptTelefoneCelular"
+                            type="text"></li>
                     <a href="https://google.com">
                     </a>
                 </ul>
-                <button onclick="validar()" class="btnDashboard">Realizar Cadastro</button>
+                <button onclick="cadastrar()" class="btnDashboard">Realizar Cadastro</button>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+<script>
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeEmpresaVar = iptNome.value;
+        var nomeFantasiaEmpresaVar = iptNomeFantasia.value;
+        var cnpjVar = iptCNPJ.value;
+        var logradouroVar = iptLogradouro.value;
+        var numLogradouroVar = iptNumLogradouro.value;
+        var cepVar = iptCEP.value;
+        var emailVar = iptEmail.value;
+        var telefoneVar = iptTelefone.value;
+        var telefoneCelularVar = iptTelefoneCelular.value;
+
+
+        // if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        //     // cardErro.style.display = "block"
+        //     alert("Todos os campos em branco");
+
+        //     finalizarAguardar();
+        //     return false;
+        // }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+
+                nomeEmpresaServer: nomeEmpresaVar,
+                nomeFantasiaEmpresaServer: nomeFantasiaEmpresaVar,
+                cnpjServer: cnpjVar,
+                logradouroServer: logradouroVar,
+                numLogradouroServer: numLogradouroVar,
+                cepServer: cepVar,
+                emailServer: emailVar,
+                telefoneServer: telefoneVar,
+                telefoneCelularServer: telefoneCelularVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                alert("Cadastro realizado com sucesso!");
+                
+                window.location = "cadastroEmpresa.html";
+                
+
+                // limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

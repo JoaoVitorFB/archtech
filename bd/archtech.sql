@@ -7,7 +7,7 @@ CREATE TABLE empresa (
   emp_nomeFantasia VARCHAR(45),
   emp_cnpj CHAR(14),
   emp_logradouro VARCHAR(100),
-  emp_numlogradouro INT,
+  emp_numLogradouro INT,
   emp_CEP CHAR(8),
   emp_email VARCHAR(45),
   emp_telefone CHAR(10),

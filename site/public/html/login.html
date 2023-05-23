@@ -85,12 +85,21 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
+                    sessionStorage.ID_USUARIO = json.usr_idUsuario;
+                    sessionStorage.TIPO_USUARIO = json.usr_tipo;
                     sessionStorage.LOGIN_USUARIO = json.usr_login;
                     sessionStorage.NOME_USUARIO = json.rpt_nome;
-                    sessionStorage.ID_USUARIO = json.usr_idUsuario;
+                    sessionStorage.EMAIL_USUARIO = json.rpt_email;
+                    sessionStorage.ID_EMPRESA = json.emp_idEmpresa;
+                    sessionStorage.NOME_EMPRESA = json.emp_nomeFantasia;
 
                     setTimeout(function () {
-                        window.location = "dashboardEmpresa.html";
+
+                        if (sessionStorage.TIPO_USUARIO != 2){
+                            window.location = "dashboardEmpresa.html";
+                        } else {
+                            window.location = "dashboardAdmin.html";
+                        }
                     }, 1000); // apenas para exibir o loading
 
                 });

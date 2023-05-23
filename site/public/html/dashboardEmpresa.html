@@ -23,7 +23,7 @@
         <div class="container">
             <div class="retangulo">
                 <div class="titulo">
-                    <span>Bem vindo ao painel da empresa </span>
+                    <span>Olá, <span id="nomeUsuario"></span> ! Bem vindo ao painel da empresa </span>
                     <span id="nomeEmpresa"></span>
                 </div>
                 <div class="content">
@@ -38,5 +38,6 @@
 </body>
 </html>
 <script>
-    nomeEmpresa.innerHTML = sessionStorage.LOGIN_USUARIO;
+    nomeEmpresa.innerHTML = sessionStorage.NOME_EMPRESA;
+    nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
 </script>

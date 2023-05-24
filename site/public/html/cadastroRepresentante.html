@@ -14,9 +14,9 @@
 <header>
     <div class="container">
         <img id="logoHeader" src="../assets/logo.png">
-        
-            <li><a href="../index.html">Sair</a></li>
-       
+
+        <li><a href="../index.html">Sair</a></li>
+
     </div>
 </header>
 
@@ -29,24 +29,92 @@
             <div class="caixacad">
                 <ul class="inputs">
                     <li><span class="placehold">Nome:</span><input type="text" id="iptNome"></li>
-                    <li><span class="placehold">Email:</span><input id="iptEmail"type="text"></li>
-                    <li><span class="placehold">Telefone:</span><input id="iptTelefone" type="text"></li>
+                    <li><span class="placehold">Email:</span><input id="iptEmail" type="text"></li>
+                    <li><span class="placehold">Celular:</span><input id="iptCelular" maxlength="11" type="text"></li>
                     <li id="representanteinput"><span class="placehold">Empresa:</span>
-                        <select name="representante" id="representanteSelect">
-                            <option value="representante1">SpTech</option>
-                            <option value="representante2">Cercadão</option>
-                            <option value="representante3">Rod Raf</option>
-                     
-                        </select></li>
-                 
-                    
+                        <select name="representante" id="empresaSelect">
+                            <option value="1">SpTech</option>
+                            <option value="2">Cercadão</option>
+                            <option value="3">Rod Raf</option>
+
+                        </select>
+                    </li>
+
+
                 </ul>
                 <a href="">
-                <button onclick="validar()" class="btnDashboard">Realizar Cadastro</button>
-            </a>
+                    <button onclick="cadastrarRepresentante()" class="btnDashboard">Realizar Cadastro</button>
+                </a>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+<script>
+    function cadastrarRepresentante() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = iptNome.value;
+        var emailVar = iptEmail.value;
+        var celularVar = iptCelular.value;
+        var empresaVar = Number(empresaSelect.value);
+
+
+        // if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        //     // cardErro.style.display = "block"
+        //     alert("Todos os campos em branco");
+
+        //     finalizarAguardar();
+        //     return false;
+        // }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarRepresentante", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                celularServer: celularVar,
+                empresaServer: empresaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                alert("Cadastro realizado com sucesso!");
+
+                window.location = "cadastroRepresentante.html";
+
+
+                // limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

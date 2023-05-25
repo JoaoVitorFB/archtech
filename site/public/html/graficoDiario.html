@@ -16,10 +16,10 @@
 <header>
     <div class="container">
         <img id="logoHeader" src="../assets/logo.png">
-         
-          
+
+
         <li><a href="../index.html">Sair</a></li>
-        
+
     </div>
 </header>
 
@@ -36,39 +36,39 @@
                     <section class="kpis">
                         <div class="line">
                             <div class="containerkpi">
-                            <div id="kpi1" class="kpi">
-                        <h1> Fluxo Minímo</h1>
-                        <h2>40</h2>  
-                        <h4>Horário: 9:00</h4>  
+                                <div id="kpi1" class="kpi">
+                                    <h1> Fluxo Minímo</h1>
+                                    <h2>40</h2>
+                                    <h4>Horário: 9:00</h4>
+                                </div>
+
+                                <div id="kpi2" class="kpi">
+                                    <h1> Fluxo Máximo</h1>
+                                    <h2>70</h2>
+                                    <h4>Horário: 13:00</h4>
+                                </div>
+
                             </div>
 
-                            <div id="kpi2" class="kpi"> 
-                                <h1> Fluxo Máximo</h1>
-                                <h2>70</h2>  
-                                <h4>Horário: 13:00</h4> 
-                            </div>
-                            
-                        </div>
-                     
-                        <div class="line">
-                            <div class="containerkpi">
-                            <div id="kpi3" class="kpi"> 
-                                <h1>Média</h1>
-                                <h2>49,93</h2>  
-                                <h4></h4>  
-                            </div>
-                            <div id="kpi4" class="kpi"> 
-                                <h1>Mediana</h1>
-                                <h2>49</h2>  
-                                <h4></h4>  
+                            <div class="line">
+                                <div class="containerkpi">
+                                    <div id="kpi3" class="kpi">
+                                        <h1>Média</h1>
+                                        <h2>49,93</h2>
+                                        <h4></h4>
+                                    </div>
+                                    <div id="kpi4" class="kpi">
+                                        <h1>Mediana</h1>
+                                        <h2>49</h2>
+                                        <h4></h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
                     </section>
                     <section class="graficos">
                         <!-- <canvas lass="can_grafico" id="chave"></canvas> -->
-                        <canvas class="can_grafico" id="graficoDiario"></canvas>
+                        <canvas class="can_grafico" id="myChartCanvas"></canvas>
                     </section>
 
                 </div>
@@ -105,7 +105,7 @@
 
 <script>
     // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    var idCorredor = sessionStorage.CORREDOR;
+    var idCorredor = Number(sessionStorage.CORREDOR);
     let proximaAtualizacao;
 
     window.onload = obterDadosGraficos();
@@ -117,14 +117,14 @@
         // obterDadosGrafico(4)
     }
 
-    verificar_autenticacao();
+    // verificar_autenticacao();
 
-    // function alterarTitulo(idAquario) {
-    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idAquario + "</span>"
+    // function alterarTitulo(idCorredor) {
+    //     var tituloAquario = document.getElementById(`tituloAquario${idCorredor}`)
+    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>Aquário " + idCorredor + "</span>"
     // }
 
-    // function exibirAquario(idAquario) {
+    // function exibirAquario(idCorredor) {
     //     let todosOsGraficos = document.getElementById("graficos")
 
     //     for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
@@ -144,12 +144,12 @@
     //     }
 
     //     // exibindo - ou não - o gráfico
-    //     let graficoExibir = document.getElementById(`grafico${idAquario}`)
+    //     let graficoExibir = document.getElementById(`grafico${idCorredor}`)
     //     graficoExibir.classList.remove("display-none")
     //     graficoExibir.classList.add("display-block")
 
     //     // alterando estilo do botão
-    //     let btnExibir = document.getElementById(`btnAquario${idAquario}`)
+    //     let btnExibir = document.getElementById(`btnAquario${idCorredor}`)
     //     btnExibir.classList.remove("btn-white")
     //     btnExibir.classList.add("btn-pink")
     // }
@@ -165,21 +165,21 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idAquario) {
+    function obterDadosGrafico(idCorredor) {
 
-        alterarTitulo(idAquario)
+        // alterarTitulo(idCorredor)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/ultimas/${idCorredor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idAquario);
+                    plotarGrafico(resposta, idCorredor);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -193,10 +193,9 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
-    function plotarGrafico(resposta, idAquario) {
-
+    function plotarGrafico(resposta, idCorredor) {
         console.log('iniciando plotagem do gráfico...');
-
+        
         // Criando estrutura para plotar gráfico - labels
         let labels = [];
 
@@ -209,26 +208,20 @@
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
-                tension: 0.1
             }]
         };
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
-
+        
+        alert(`A`)
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             labels.push(registro.momento_grafico);
             dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
+            // dados.datasets[1].data.push(registro.temperatura);
         }
 
         console.log('----------------------------------------------')
@@ -247,11 +240,11 @@
 
         // Adicionando gráfico criado em div na tela
         let myChart = new Chart(
-            document.getElementById(`myChartCanvas${idAquario}`),
+            document.getElementById(`myChartCanvas${idCorredor}`),
             config
         );
 
-        setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+        // setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 2000);
     }
 
 
@@ -260,11 +253,11 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function atualizarGrafico(idAquario, dados, myChart) {
+    function atualizarGrafico(idCorredor, dados, myChart) {
 
 
 
-        fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/tempo-real/${idCorredor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
@@ -272,7 +265,7 @@
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
 
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
+                    let avisoCaptura = document.getElementById(`avisoCaptura${idCorredor}`)
                     avisoCaptura.innerHTML = ""
 
 
@@ -293,19 +286,19 @@
                         dados.datasets[0].data.shift();  // apagar o primeiro de umidade
                         dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
 
-                        dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+                        // dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
+                        // dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
                         myChart.update();
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 2000);
             }
         })
             .catch(function (error) {

@@ -66,9 +66,9 @@
                             </div>
                         </div>
                     </section>
-                    <section class="graficos">
+                    <section id="div_plotarGrafico" class="graficos">
                         <!-- <canvas lass="can_grafico" id="chave"></canvas> -->
-                        <canvas class="can_grafico" id="myChartCanvas1"></canvas>
+                        
                     </section>
 
                 </div>
@@ -106,6 +106,7 @@
 <script>
     // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var idCorredor = Number(sessionStorage.CORREDOR);
+    div_plotarGrafico.innerHTML = `<canvas class="can_grafico" id="myChartCanvas${idCorredor}"></canvas>`
     let proximaAtualizacao;
 
     window.onload = obterDadosGraficos();
@@ -215,7 +216,6 @@
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
         
-        alert(`A`)
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
@@ -244,7 +244,7 @@
             config
         );
 
-        // setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 2000);
+        setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 2000);
     }
 
 
@@ -255,8 +255,6 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function atualizarGrafico(idCorredor, dados, myChart) {
 
-
-
         fetch(`/medidas/tempo-real/${idCorredor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
@@ -264,15 +262,14 @@
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(dados);
-
-                    let avisoCaptura = document.getElementById(`avisoCaptura${idCorredor}`)
-                    avisoCaptura.innerHTML = ""
+                    // let avisoCaptura = document.getElementById(`avisoCaptura${idCorredor}`)
+                    // avisoCaptura.innerHTML = ""
 
 
                     if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
                         console.log("---------------------------------------------------------------")
                         console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+                        // avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
                         console.log("Horário do novo dado capturado:")
                         console.log(novoRegistro[0].momento_grafico)
                         console.log("Horário do último dado capturado:")
@@ -290,6 +287,7 @@
                         // dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
                         myChart.update();
+                        alert("3")
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar

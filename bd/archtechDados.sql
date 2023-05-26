@@ -1,4 +1,4 @@
--- Active: 1683809701982@@127.0.0.1@3306@archtech
+-- Active: 1685109078809@@localhost@3306@archtech
 -- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           8.0.32 - MySQL Community Server - GPL
@@ -61,3 +61,6 @@ INSERT INTO `usuario` (`usr_idUsuario`, `usr_login`, `usr_senha`, `usr_tipo`, `r
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
+
+DELETE FROM dados where `crd_idCorredor` = 18;

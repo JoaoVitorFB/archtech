@@ -7,7 +7,7 @@ function buscarUltimasMedidas(req, res) {
     var idCorredor = req.params.idCorredor;
     var diaSelecionado = req.params.diaSelecionado;
 
-    console.log(`${diaSelecionado} - Recuperando as ultimas ${limite_linhas} medidas`);
+    console.log(`Recuperando as ultimas ${limite_linhas} medidas de ${diaSelecionado}`);
 
     medidaModel.buscarUltimasMedidas(idCorredor, diaSelecionado, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
@@ -26,10 +26,11 @@ function buscarUltimasMedidas(req, res) {
 function buscarMedidasEmTempoReal(req, res) {
 
     var idCorredor = req.params.idCorredor;
+    var diaSelecionado = req.params.diaSelecionado;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idCorredor).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(idCorredor, diaSelecionado).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

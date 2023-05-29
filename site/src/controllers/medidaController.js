@@ -5,10 +5,11 @@ function buscarUltimasMedidas(req, res) {
     const limite_linhas = 13;
 
     var idCorredor = req.params.idCorredor;
+    var diaSelecionado = req.params.diaSelecionado;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+    console.log(`${diaSelecionado} - Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idCorredor, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas(idCorredor, diaSelecionado, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

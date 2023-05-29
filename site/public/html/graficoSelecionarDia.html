@@ -29,7 +29,7 @@
                 </div>
                 <div class="content">   
                     <div class="input">
-                        <span class="placehold">Data:</span><input id="input_SelecionarDia" type="date">
+                        <span class="placehold">Data:</span><input id="ipt_selecionarDia" type="date">
                     </div>
                     <a href="graficoDiario.html">
                         <button onclick="verDiario()" class="btnDashboard">Relatório Diário</button>
@@ -42,9 +42,7 @@
 
 </html>
 <script>
-    function verDiario(params) {
-        diaSelecionado = input_SelecionarDia.value;
-    sessionStorage.DIASELECIONADO = input_SelecionarDia.value;
-    }
-   
+    function verDiario() {
+    sessionStorage.DIA_SELECIONADO = ipt_selecionarDia.value;
+    }  
 </script>

@@ -104,10 +104,10 @@
 </html>
 
 <script>
-    var data_americana = sessionStorage.DIASELECIONADO;
-    var data_brasileira = data_americana.split('-').reverse().join('/');
+    var diaSelecionado = sessionStorage.DIA_SELECIONADO;
+    var data_brasileira = diaSelecionado.split('-').reverse().join('/');
     
-    boxdata.innerHTML= `Dia: ${data_brasileira}`  ;
+    boxdata.innerHTML= `Dia: ${data_brasileira}`;
     // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var idCorredor = Number(sessionStorage.CORREDOR);
     div_plotarGrafico.innerHTML = `<canvas class="can_grafico" id="myChartCanvas${idCorredor}"></canvas>`
@@ -178,7 +178,8 @@
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idCorredor}`, { cache: 'no-store' }).then(function (response) {
+
+        fetch(`/medidas/ultimas/${idCorredor}/${diaSelecionado}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);

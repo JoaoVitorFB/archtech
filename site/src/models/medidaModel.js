@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idCorredor, limite_linhas) {
+function buscarUltimasMedidas(idCorredor, diaSelecionado, limite_linhas) {
 
     instrucaoSql = ''
 
@@ -18,7 +18,7 @@ function buscarUltimasMedidas(idCorredor, limite_linhas) {
         dds_fluxo as umidade, 
         dds_horaFinal as momento_grafico
                     from dados
-                    where crd_idCorredor = ${idCorredor}
+                    where crd_idCorredor = ${idCorredor} and dds_data = '${diaSelecionado}'
                     order by dds_idDados desc limit ${limite_linhas};`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

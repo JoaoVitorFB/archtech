@@ -104,14 +104,15 @@
 </html>
 
 <script>
-    var diaSelecionado = sessionStorage.DIA_SELECIONADO;
+  var diaSelecionado = sessionStorage.DIA_SELECIONADO;
+    var mesSelecionado = sessionStorage.MES_SELECIONADO;
     var data_brasileira = diaSelecionado.split('-').reverse().join('/');
     var fluxoMax = 0;
     var fluxoMin = 0;
     var fluxoTotal = 0;
     var media = 0;
     var mediana = 0;
-    
+    var medirmes = 0;
     boxdata.innerHTML= `Dia: ${data_brasileira}`;
     // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var idCorredor = Number(sessionStorage.CORREDOR);
@@ -176,15 +177,15 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idCorredor) {
-
-        // alterarTitulo(idCorredor)
+         medirmes = 0
+        // alterarTituloidCorredor)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
 
-        fetch(`/medidas/ultimas/${idCorredor}/${diaSelecionado}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/ultimas/${idCorredor}/${diaSelecionado}/${mesSelecionado}/${medirmes}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -295,7 +296,7 @@
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function atualizarGrafico(idCorredor, dados, myChart) {
         
-        fetch(`/medidas/tempo-real/${idCorredor}/${diaSelecionado}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/tempo-real/${idCorredor}/${diaSelecionado}/${mesSelecionado}/${medirmes}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 

@@ -29,23 +29,10 @@
                 </div>
                 <div class="content">
                     <div class="input">
-                        <span class="placehold">Mês:</span><select name="mes" id="selectMes">
-                            <option value="jan">Janeiro </option>
-                            <option value="fev">Fevereiro</option>
-                            <option value="mar">Março</option>
-                            <option value="abr">Abril</option>
-                            <option value="mai">Maio</option>
-                            <option value="jun">Junho</option>
-                            <option value="jul">Julho</option>
-                            <option value="ago">Agosto</option>
-                            <option value="set">Setembro</option>
-                            <option value="out">Outubro</option>
-                            <option value="nov">Novembro</option>
-                            <option value="dez">Dezembro</option>
-                        </select>
+                        <span class="placehold">Mês:</span><input id="ipt_selecionarMes" type="month">
                     </div>
                     <a href="graficoMensal.html">
-                        <button class="btnDashboard">Relatório Mensal</button>
+                        <button onclick="verMensal()" class="btnDashboard">Relatório Mensal</button>
                     </a>
                 </div>
             </div>
@@ -54,3 +41,8 @@
 </body>
 
 </html>
+<script>
+    function verMensal() {
+        sessionStorage.MES_SELECIONADO = ipt_selecionarMes.value;
+    }
+</script>

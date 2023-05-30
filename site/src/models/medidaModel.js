@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idCorredor, diaSelecionado, limite_linhas) {
+function buscarUltimasMedidas(idCorredor, diaSelecionado, limite_linhas, mesSelecionado, medirmes) {
 
     instrucaoSql = ''
 
@@ -14,12 +14,22 @@ function buscarUltimasMedidas(idCorredor, diaSelecionado, limite_linhas) {
                     where fk_aquario = ${idCorredor}
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
+        if (medirmes == 1) {
+            instrucaoSql = `select 
         dds_fluxo as fluxo, 
         dds_horaFinal as momento_grafico
                     from dados
-                    where crd_idCorredor = ${idCorredor} and dds_data = '${diaSelecionado}'
-                    order by dds_idDados desc limit ${limite_linhas};`;
+                    where crd_idCorredor = ${idCorredor} and dds_data like '${mesSelecionado}-%'
+                    order by dds_idDados desc limit ${limite_linhas};`
+        }else if (medirmes == 0) {
+            instrucaoSql = `select 
+            dds_fluxo as fluxo, 
+            dds_horaFinal as momento_grafico
+                        from dados
+                        where crd_idCorredor = ${idCorredor} and dds_data = '${diaSelecionado}'
+                        order by dds_idDados desc limit ${limite_linhas};`
+        }
+       
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -29,7 +39,7 @@ function buscarUltimasMedidas(idCorredor, diaSelecionado, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idCorredor, diaSelecionado) {
+function buscarMedidasEmTempoReal(idCorredor, diaSelecionado,  mesSelecionado, medirmes) {
 
     instrucaoSql = ''
 
@@ -43,12 +53,22 @@ function buscarMedidasEmTempoReal(idCorredor, diaSelecionado) {
                     order by id desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select 
+        if (medirmes == 1) {
+            instrucaoSql = `select 
         dds_fluxo as fluxo, 
         dds_horaFinal as momento_grafico
                     from dados
-                    where crd_idCorredor = ${idCorredor} and dds_data = '${diaSelecionado}'
+                    where crd_idCorredor = ${idCorredor} and dds_data like '${mesSelecionado}-%'
                     order by dds_idDados desc limit 1;`;
+        }else if(medirmes == 0){
+            instrucaoSql = `select 
+            dds_fluxo as fluxo, 
+            dds_horaFinal as momento_grafico
+                        from dados
+                        where crd_idCorredor = ${idCorredor} and dds_data = '${diaSelecionado}-%'
+                        order by dds_idDados desc limit 1;`;
+        }
+        
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

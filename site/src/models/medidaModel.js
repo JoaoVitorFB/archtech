@@ -15,13 +15,15 @@ function buscarUltimasMedidas(idCorredor, diaSelecionado, limite_linhas, mesSele
                     order by id desc`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         if (medirmes == 1) {
-            instrucaoSql = `select 
-        dds_fluxo as fluxo, 
-        dds_horaFinal as momento_grafico
-                    from dados
-                    where crd_idCorredor = ${idCorredor} and dds_data like '${mesSelecionado}-%'
-                    order by dds_idDados desc limit ${limite_linhas};`
+            // QUERY DO MES
+            instrucaoSql = 
+            `SELECT DATE_FORMAT(dds_data, '%d') AS momento_grafico, SUM(dds_fluxo) AS fluxo
+            FROM dados
+            WHERE dds_data LIKE '${mesSelecionado}-%' and crd_idCorredor= ${idCorredor}
+            GROUP BY dds_data ORDER BY dds_data DESC`
+     
         }else if (medirmes == 0) {
+            // QUERY DO DIARIO
             instrucaoSql = `select 
             dds_fluxo as fluxo, 
             dds_horaFinal as momento_grafico
@@ -53,13 +55,14 @@ function buscarMedidasEmTempoReal(idCorredor, diaSelecionado,  mesSelecionado, m
                     order by id desc`;
 
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+
+        // query do mes
         if (medirmes == 1) {
-            instrucaoSql = `select 
-        dds_fluxo as fluxo, 
-        dds_horaFinal as momento_grafico
-                    from dados
-                    where crd_idCorredor = ${idCorredor} and dds_data like '${mesSelecionado}-%'
-                    order by dds_idDados desc limit 1;`;
+            instrucaoSql = `SELECT DATE_FORMAT(dds_data, '%d') AS momento_grafico, SUM(dds_fluxo) AS fluxo
+            FROM dados
+            WHERE dds_data LIKE '${mesSelecionado}-%' and crd_idCorredor= ${idCorredor}
+            GROUP BY dds_data ORDER BY dds_data DESC`;
+      // query do mes
         }else if(medirmes == 0){
             instrucaoSql = `select 
             dds_fluxo as fluxo, 

@@ -29,7 +29,7 @@
             <div class="retangulo">
                 <div class="titulo">
                     <span>Fluxo de pessoas do corredor 1</span>
-                    <span id="boxdata">Mês: Março</span>
+                    <span id="boxdata"></span>
                 </div>
 
                 <div class="dados">
@@ -66,9 +66,8 @@
                     </div>
                     </div>
                     </section>
-                    <section class="graficos">
+                    <section id="div_plotarGrafico" class="graficos">
                         <!-- <canvas lass="can_grafico" id="chave"></canvas> -->
-                        <div id="div_plotarGrafico"></div>
                     </section>
 
                 </div>
@@ -79,26 +78,6 @@
 
 
     </div>
-    <div id="graficosApagados">
-        <h1>Sensor DHT 11 - Umidade</h1>
-        <section class="graficos">
-            <canvas id="dht11Umidade"></canvas>
-        </section>
-        <h1>Sensor DHT 11 - Temperatura</h1>
-        <section class="graficos">
-            <canvas id="dht11Temperatura"></canvas>
-        </section>
-        <h1>Sensor Luminosidade</h1>
-        <section class="graficos">
-            <canvas id="luminosidade"></canvas>
-        </section>
-        <h1>Sensor LM 35 - Temperatura</h1>
-        <section class="graficos">
-            <canvas id="lm35Temperatura"></canvas>
-        </section>
-    </div>
-
-
 </body>
 
 </html>
@@ -112,9 +91,18 @@
     var media = 0;
     var mediana = 0;
     var medirmes = 1;
+    var mesAno = new Date (data_brasileira)
+
+const data = new Date(data_brasileira);
+const mes = data.toLocaleString("pt-BR", { month: "long" });
+const ano = data.getFullYear();
+const mesEAno = `${mes} ${ano}`;
+
+console.log(mesEAno);
+
     
     
-    boxdata.innerHTML= `Dia: ${data_brasileira}`;
+    boxdata.innerHTML= `${mesEAno}`;
     // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var idCorredor = Number(sessionStorage.CORREDOR);
     div_plotarGrafico.innerHTML = `<canvas class="can_grafico" id="myChartCanvas${idCorredor}"></canvas>`
@@ -276,7 +264,7 @@
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'line',
+            type: 'bar',
             data: dados,
         };
 

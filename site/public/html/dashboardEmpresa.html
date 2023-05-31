@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style-dashboardEmpresa.css">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/avisos.css">
     <script src="../js/funcoes.js"></script>
+    <script src="../js/alerta.js"></script>
     <title>Dashboard Empresa</title>
 </head>
 
@@ -18,7 +20,8 @@
         <li><a onclick="limparSessao()">Sair</a></li>  
     </div>
 </header>
-<body onload="validarSessao()">
+<body onload="validarSessao(), atualizacaoPeriodica()">
+    <div id="alerta"></div>
     <div class="main">
         <div class="container">
             <div class="retangulo">
@@ -38,6 +41,34 @@
 </body>
 </html>
 <script>
-    nomeEmpresa.innerHTML = sessionStorage.NOME_EMPRESA;
+var data = new Date();
+var dia = String(data. getDate()). padStart(2 ,'0');
+var mes = String(data. getMonth() + 1). padStart(2, '0');
+var ano = data. getFullYear();
+dataAtual =  ano  + '-' + mes + '-' +dia ;
+console.log(dataAtual);
+nomeEmpresa.innerHTML = sessionStorage.NOME_EMPRESA;
     nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
+    function atualizacaoPeriodica() {
+        obterdados(1, dataAtual, 0, 0);
+        obterdados(2, dataAtual,0,0);
+        // obterdados(3);
+        // obterdados(4);
+
+        setTimeout(atualizacaoPeriodica, 5000);
+    }
+    // alerta.style.display = 'none'
+
 </script>
+
+<!-- SELECT c.crd_idCorredor, d.dds_fluxo 
+FROM corredor c 
+INNER JOIN dados d 
+ON c.crd_idCorredor = d.crd_idCorredor 
+WHERE d.dds_idDados IN 
+    (SELECT MAX(dds_idDados) 
+     FROM dados 
+     GROUP BY crd_idCorredor); -->
+
+
+

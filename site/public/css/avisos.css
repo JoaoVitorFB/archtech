@@ -1,0 +1,19 @@
+
+#alerta{
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    text-align: center;
+    
+
+}
+ 
+  .perigo-quente {
+    background-color: #ff0000;
+  }
+  
+  .alerta-quente {
+    background-color: #ff9500;
+  }
+  
+   

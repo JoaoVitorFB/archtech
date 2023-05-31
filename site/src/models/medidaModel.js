@@ -66,7 +66,7 @@ function buscarMedidasEmTempoReal(idCorredor, diaSelecionado,  mesSelecionado, m
         }else if(medirmes == 0){
             instrucaoSql = `select 
             dds_fluxo as fluxo, 
-            dds_horaFinal as momento_grafico
+            dds_horaFinal as momento_grafico, crd_idCorredor as idCorredor
                         from dados
                         where crd_idCorredor = ${idCorredor} and dds_data = '${diaSelecionado}-%'
                         order by dds_idDados desc limit 1;`;

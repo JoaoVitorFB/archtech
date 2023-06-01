@@ -6,7 +6,6 @@ function obterdados(idCorredor, diaSelecionado, mesSelecionado, medirmes) {
 
             if (resposta.ok) {
                 resposta.json().then(resposta => {
-
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                     alertar(resposta, idCorredor);

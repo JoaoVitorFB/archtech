@@ -9,11 +9,21 @@
 }
  
   .perigo-quente {
-    background-color: #ff0000;
+    background-color: #af0000;
   }
   
   .alerta-quente {
-    background-color: #ff9500;
+    background-color: #ec0000;
+  }
+
+  .alarme-sino {
+    width: 48px;
+    height: 48px;
+    animation-name: bell;
+    animation-duration: 4s;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1157/1157000.png');
+    background-size: cover;
+    animation-iteration-count: infinite;
   }
   
    

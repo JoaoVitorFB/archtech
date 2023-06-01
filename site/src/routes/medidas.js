@@ -11,4 +11,8 @@ router.get("/tempo-real/:idCorredor/:diaSelecionado/:mesSelecionado/:medirmes", 
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.get("/tempo-real-geral/:dataAtual", function (req, res) {
+    medidaController.buscarMedidasGeral(req, res);
+})
+
 module.exports = router;

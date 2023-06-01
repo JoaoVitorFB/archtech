@@ -38,14 +38,14 @@
                             <div class="containerkpi">
                             <div id="kpi1" class="kpi">
                         <h1> Fluxo Minímo</h1>
-                        <h2>632</h2>  
-                        <h4>Data: 16/03/2023</h4>  
+                        <h2 id="retFluxoMinimo">-</h2>  
+                        <h4>Data: </h4>  
                             </div>
 
                             <div id="kpi2" class="kpi"> 
                                 <h1> Fluxo Máximo</h1>
-                                <h2>750</h2>  
-                                <h4>Data: 04/03/2023</h4> 
+                                <h2 id="retFluxoMaximo">-</h2>  
+                                <h4>Data: </h4> 
                             </div>
                             
                         </div>
@@ -54,12 +54,12 @@
                             <div class="containerkpi">
                             <div id="kpi3" class="kpi"> 
                                 <h1>Média</h1>
-                                <h2>706.19</h2>  
+                                <h2 id="retMedia">-</h2>  
                                 <h4></h4>  
                             </div>
                             <div id="kpi4" class="kpi"> 
                                 <h1>Mediana</h1>
-                                <h2>691</h2>  
+                                <h2 id="retMediana">-</h2>  
                                 <h4></h4>  
                             </div>
                         </div>
@@ -224,33 +224,33 @@ console.log(mesEAno);
             // dados.datasets[1].data.push(registro.temperatura);
         }
 
-        // for (i = 0; i < dados.datasets[0].data.length; i++) {
-        //   if (dados.datasets[0].data[i] > fluxoMax){
-        //     fluxoMax = dados.datasets[0].data[i]
-        //   }
-        // }
+        for (i = 0; i < resposta.length; i++) {
+          if (dados.datasets[0].data[i] > fluxoMax){
+            fluxoMax = dados.datasets[0].data[i]
+          }
+        }
 
-        // for (i = 0; i < dados.datasets[0].data.length; i++) {
+        for (i = 0; i < dados.datasets[0].data.length; i++) {
           
-        //   if (fluxoMin == 0){
-        //     fluxoMin = dados.datasets[0].data[i]
-        //   } else if (dados.datasets[0].data[i] < fluxoMin){
-        //     fluxoMin = dados.datasets[0].data[i]
-        //   }
-        // }
+          if (fluxoMin == 0){
+            fluxoMin = dados.datasets[0].data[i]
+          } else if (dados.datasets[0].data[i] < fluxoMin){
+            fluxoMin = dados.datasets[0].data[i]
+          }
+        }
 
-        // for (i = 0; i < dados.datasets[0].data.length; i++) {
-        //   fluxoTotal = fluxoTotal + dados.datasets[0].data[i]
-        // }
+        for (i = 0; i < dados.datasets[0].data.length; i++) {
+          fluxoTotal = fluxoTotal + dados.datasets[0].data[i]
+        }
 
-        // media = fluxoTotal/dados.datasets[0].data.length
-        // posMediana = dados.datasets[0].data.length/2
-        // mediana = dados.datasets[0].data[posMediana.toFixed(0)] 
+        media = fluxoTotal/dados.datasets[0].data.length
+        posMediana = dados.datasets[0].data.length/2
+        mediana = dados.datasets[0].data[posMediana.toFixed(0)] 
 
-        // retFluxoMaximo.innerHTML = fluxoMax;
-        // retFluxoMinimo.innerHTML = fluxoMin;
-        // retMedia.innerHTML = media.toFixed(2);
-        // retMediana.innerHTML = mediana;
+        retFluxoMaximo.innerHTML = fluxoMax;
+        retFluxoMinimo.innerHTML = fluxoMin;
+        retMedia.innerHTML = media.toFixed(2);
+        retMediana.innerHTML = mediana;
 
         // dados.datasets[1].data.push(registro.temperatura);
         

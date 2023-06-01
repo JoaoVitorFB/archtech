@@ -131,9 +131,11 @@ height: 12vw;
  #kpi1 h2{
     color: red;
  }
- #kpi1 h4{
+ #kpi1 h4, #retHoraFluxoMin{
     color: #71797E;
+    font-size: 16px;
  }
+ 
  /* </Cores da kpi fluxo minimio> */
 
 
@@ -141,9 +143,9 @@ height: 12vw;
  #kpi2 h2{
     color: green;
  }
- #kpi2 h4{
+ #kpi2 h4, #retHoraFluxoMax{
     color: #71797E;
-
+    font-size: 16px;
  }
    /* </Cores da kpi fluxo maximo> */
 

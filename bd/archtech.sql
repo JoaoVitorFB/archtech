@@ -1,3 +1,4 @@
+DROP DATABASE archtech;
 CREATE DATABASE archtech;
 USE archtech ;
 
@@ -59,3 +60,5 @@ ALTER TABLE usuario ADD FOREIGN KEY (rpt_idRepresentante) REFERENCES representan
 ALTER TABLE corredor ADD FOREIGN KEY (emp_idEmpresa) REFERENCES empresa (emp_idEmpresa);
 
 ALTER TABLE dados ADD FOREIGN KEY (crd_idCorredor) REFERENCES corredor (crd_idCorredor);
+
+USE archtech;

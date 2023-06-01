@@ -1,3 +1,4 @@
+-- Active: 1685634201882@@127.0.0.1@3306@archtech
 
 
 INSERT INTO dados (crd_idCorredor, dds_idDados, dds_horaInicio, dds_horaFinal, dds_data, dds_fluxo)
@@ -15,11 +16,6 @@ VALUES
   (1, null, '19:00:00', '20:00:00', '2023-05-30', 90),
   (1, null, '20:00:00', '21:00:00', '2023-05-30', 80),
   (1, null, '21:00:00', '22:00:00', '2023-05-30', 70);
-
- SELECT dds_data, SUM(dds_fluxo) AS total_fluxo
-FROM dados
-WHERE MONTH(dds_data) = 5  -- Mês específico (neste exemplo, maio)
-GROUP BY dds_data;
 
 INSERT INTO dados (crd_idCorredor, dds_idDados, dds_horaInicio, dds_horaFinal, dds_data, dds_fluxo)
 VALUES

@@ -119,12 +119,15 @@ function exibirCards() {
 }
 
 function transformarEmDiv({ idCorredor, fluxo, grauDeAviso, grauDeAvisoCor }) {
-    return `<div id="alertaCorredor${idCorredor}" style="margin-bottom:10px; background-color: #f2f3f4;" class="mensagem-alarme">
-    <div style="background-color: #f4f2f3;" class="informacao">
-    <div class="${grauDeAvisoCor}">&#12644;</div> 
-     <h3>O corredor ${idCorredor} está com o fluxo ${grauDeAviso}!</h3>
-    <span>Fluxo: ${fluxo}</span> 
+    return `<div id="alertaCorredor${idCorredor}" style="margin-top:10px; background-color: #f2f3f4;" class="mensagem-alarme">
+        <div style="background-color: #f4f2f3; display: flex; flex-direction: row; justify-content: space-between; align-items: center;" class="informacao">
+            <div style="height: 125.44px;" class="${grauDeAvisoCor}">&#12644;</div> 
+            <div class="alarme-sino"></div>
+            <div>
+                <h3 style="width: 170px;">O corredor ${idCorredor} está com o fluxo ${grauDeAviso}!</h3>
+                <span>Fluxo: ${fluxo}</span>
+            </div> 
+        </div>
     </div>
-    <div class="alarme-sino"></div>
-    </div>`;
+    `;
 }

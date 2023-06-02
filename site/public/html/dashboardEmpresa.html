@@ -32,25 +32,26 @@
                     <span>Olá, <span id="nomeUsuario"></span> ! Bem vindo ao painel da empresa </span>
                     <span id="nomeEmpresa"></span>
                 </div>
-                <div class="content">
-                    <p>O que deseja fazer?</p>
-                    <a href="../html/selecionarCorredor.html">
-                        <button class="btnDashboard">Conferir fluxo de pessoas</button>
-                    </a>
-                    
+                <div class="content" style="display: flex; flex-direction: row;">
+                    <section id="div_plotarGrafico" class="graficos" style="width: 50%;">
+                                        <!-- <canvas lass="can_grafico" id="chave"></canvas> -->         
+                    </section>
+                    <div style="width: 50%; display: flex; flex-direction: column; align-items: center; gap: 50px;">
+                        <img src="../assets/regua.png" alt="">
+                        <!-- <p>O que deseja fazer?</p> -->
+                        <a href="../html/selecionarCorredor.html" style="width: fit-content;">
+                            <button class="btnDashboard">Conferir fluxo de pessoas</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <section id="div_plotarGrafico" class="graficos">
-                        <!-- <canvas lass="can_grafico" id="chave"></canvas> -->
-                        
-    </section>
 </body>
 
 </html>
 <script>
-    div_plotarGrafico.innerHTML = `<canvas class="can_grafico" id="myChartCanvas"></canvas>`
+    div_plotarGrafico.innerHTML = `<canvas class="can_grafico" id="myChartCanvas" width=600 height=300></canvas>`
     var data = new Date();
     var dia = String(data.getDate()).padStart(2, '0');
     var mes = String(data.getMonth() + 1).padStart(2, '0');
@@ -231,7 +232,7 @@
         } else if (resposta[0].fluxo > limites.ruim && resposta[0].fluxo <= limites.baixo) {
             bgColor[Number(idCorredor) - 1] = '#ec0000';
         } else if (resposta[0].fluxo > limites.baixo && resposta[0].fluxo < limites.bom) {
-            bgColor[Number(idCorredor) - 1] = '#0073E3';
+            bgColor[Number(idCorredor) - 1] = '#edd900';
         } else if (resposta[0].fluxo > limites.bom && resposta[0].fluxo < limites.otimo) {
             bgColor[Number(idCorredor) - 1] = '#01E300';
         } else {
@@ -343,7 +344,7 @@
                     } else if (novoRegistro[0].fluxo > limites.ruim && novoRegistro[0].fluxo <= limites.baixo) {
                         bgColor[Number(idCorredor) - 1] = '#ec0000';
                     } else if (novoRegistro[0].fluxo > limites.baixo && novoRegistro[0].fluxo < limites.bom) {
-                        bgColor[Number(idCorredor) - 1] = '#0073E3';
+                        bgColor[Number(idCorredor) - 1] = '#edd900';
                     } else if (novoRegistro[0].fluxo > limites.bom && novoRegistro[0].fluxo < limites.otimo) {
                         bgColor[Number(idCorredor) - 1] = '#01E300';
                     } else {

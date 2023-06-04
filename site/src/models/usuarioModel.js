@@ -61,10 +61,23 @@ function cadastrarRepresentante(nome, email, celular, empresa) {
     return database.executar(instrucao);
 }
 
+function cadastrarUsuario(login, senha, representante) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", login, senha, representante);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO usuario (usr_login, usr_senha, usr_tipo, rpt_idRepresentante) VALUES ('${login}', '${senha}', 2, ${representante});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrarEmpresa,
     cadastrarRepresentante,
+    cadastrarUsuario,
     listar,
     listarEmpresas,
     listarRepresentantes

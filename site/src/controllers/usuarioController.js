@@ -182,10 +182,50 @@ function cadastrarRepresentante(req, res) {
     }
 }
 
+function cadastrarUsuario(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    // var nome = req.body.nomeServer;
+    // var email = req.body.emailServer;
+    // var senha = req.body.senhaServer;
+
+    var login = req.body.loginServer;
+    var senha = req.body.senhaServer;
+    var representante = req.body.representanteServer;
+
+
+    // Faça as validações dos valores
+    if (login == undefined) {
+        res.status(400).send("Seu login está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("Seu senha está undefined!");
+    } else if (representante == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarUsuario(login, senha, representante)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrarEmpresa,
     cadastrarRepresentante,
+    cadastrarUsuario,
     listar,
     listarEmpresas,
     listarRepresentantes,

@@ -13,10 +13,10 @@
 <header>
     <div class="container">
         <img id="logoHeader" src="../assets/logo.png">
-        
-         
+
+
         <li><a href="../index.html">Sair</a></li>
-         
+
     </div>
 </header>
 
@@ -28,20 +28,19 @@
         <div class="container">
             <div class="caixacad">
                 <ul class="inputs">
-                    <li><span class="placehold">Usuário</span><input type="text"></li>
-                    <li><span class="placehold">Senha:</span><input type="text"></li>
-                        <li id="representanteinput"><span class="placehold">Empresa:</span>
-                            <select name="representante" id="empresaSelect" onfocus="trazerDadosEmpresas()">
-                                <option>Selecionar...</option>
-                            </select></li>
-                            <li id="representanteinput"><span class="placehold">Representante:</span>
-                                <select name="representante" id="representanteSelect">
-                                    <option>...</option>
-                                </select></li>
-                   
-                    <a onclick="alerta()" href="">
-                        <button class="btnDashboard">Realizar Cadastro</button>
-                    </a>
+                    <li><span class="placehold">Login:</span><input id="iptLogin" type="text"></li>
+                    <li><span class="placehold">Senha:</span><input id="iptSenha" type="text"></li>
+                    <li id="representanteinput"><span class="placehold">Empresa:</span>
+                        <select name="representante" id="empresaSelect" onfocus="trazerDadosEmpresas()">
+                            <option>Selecionar...</option>
+                        </select>
+                    </li>
+                    <li id="representanteinput"><span class="placehold">Representante:</span>
+                        <select name="representante" id="representanteSelect">
+                            <option>...</option>
+                        </select>
+                    </li>
+                    <button class="btnDashboard" onclick="cadastrarUsuario()">Realizar Cadastro</button>
                 </ul>
             </div>
         </div>
@@ -71,12 +70,12 @@
 
 
                     for (let i = resposta.length; i > 0; i--) {
-                        var dados = resposta[i-1];
+                        var dados = resposta[i - 1];
 
                         var option = document.createElement("option");
 
                         option.innerHTML = dados.nomeEmpresa;
-  
+
                         option.className = "optionEmpresa";
 
                         option.setAttribute("value", `${dados.idEmpresa}`)
@@ -96,7 +95,7 @@
         });
     }
 
-    function trazerDadosRepresentantes(idEmpresa){
+    function trazerDadosRepresentantes(idEmpresa) {
         fetch(`/usuarios/listarRepresentantes/${idEmpresa}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -115,12 +114,12 @@
 
 
                     for (let i = resposta.length; i > 0; i--) {
-                        var dados = resposta[i-1];
+                        var dados = resposta[i - 1];
 
                         var option = document.createElement("option");
 
                         option.innerHTML = dados.nomeRepresentante;
-  
+
                         option.className = "optionEmpresa";
 
                         option.setAttribute("value", `${dados.idRepresentante}`)
@@ -137,6 +136,65 @@
             console.error(resposta);
             // finalizarAguardar();
         });
+    }
+
+    function cadastrarUsuario() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var loginVar = iptLogin.value;
+        var senhaVar = iptSenha.value;
+        var representanteVar = Number(representanteSelect.value);
+
+
+        // if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        //     // cardErro.style.display = "block"
+        //     alert("Todos os campos em branco");
+
+        //     finalizarAguardar();
+        //     return false;
+        // }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarUsuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                loginServer: loginVar,
+                senhaServer: senhaVar,
+                representanteServer: representanteVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                alert("Cadastro realizado com sucesso!");
+
+                window.location = "cadastroRepresentante.html";
+
+
+                // limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
     }
 
 </script>

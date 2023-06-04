@@ -1,4 +1,4 @@
--- Active: 1685634201882@@127.0.0.1@3306@archtech
+-- Active: 1685655382997@@127.0.0.1@3306@archtech
 -- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
 -- Versão do servidor:           8.0.32 - MySQL Community Server - GPL

@@ -32,15 +32,10 @@
                     <li><span class="placehold">Email:</span><input id="iptEmail" type="text"></li>
                     <li><span class="placehold">Celular:</span><input id="iptCelular" maxlength="11" type="text"></li>
                     <li id="representanteinput"><span class="placehold">Empresa:</span>
-                        <select name="representante" id="empresaSelect">
-                            <option value="1">SpTech</option>
-                            <option value="2">Cercadão</option>
-                            <option value="3">Rod Raf</option>
-
+                        <select name="representante" id="empresaSelect" onfocus="trazerDadosEmpresas()">
+                            <option>Selecionar...</option>
                         </select>
                     </li>
-
-
                 </ul>
                 <a href="">
                     <button onclick="cadastrarRepresentante()" class="btnDashboard">Realizar Cadastro</button>
@@ -52,6 +47,51 @@
 
 </html>
 <script>
+
+ function trazerDadosEmpresas() {
+        //aguardar();
+        fetch("/usuarios/listarEmpresas").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var retorno = document.getElementById("empresaSelect");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    retorno.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var retorno = document.getElementById("empresaSelect");
+                    retorno.innerHTML = "";
+
+
+                    for (let i = resposta.length; i > 0; i--) {
+                        var dados = resposta[i-1];
+
+                        var option = document.createElement("option");
+
+                        option.innerHTML = dados.nomeEmpresa;
+  
+                        option.className = "optionEmpresa";
+
+                        option.setAttribute("value", `${dados.idEmpresa}`)
+
+                        retorno.appendChild(option);
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+
     function cadastrarRepresentante() {
         // aguardar();
 

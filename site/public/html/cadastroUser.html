@@ -31,18 +31,12 @@
                     <li><span class="placehold">Usuário</span><input type="text"></li>
                     <li><span class="placehold">Senha:</span><input type="text"></li>
                         <li id="representanteinput"><span class="placehold">Empresa:</span>
-                            <select name="representante" id="representanteSelect">
-                                <option value="representante1">SpTech</option>
-                                <option value="representante2">Cercadão</option>
-                                <option value="representante3">Rod Raf</option>
-                         
+                            <select name="representante" id="empresaSelect" onfocus="trazerDadosEmpresas()">
+                                <option>Selecionar...</option>
                             </select></li>
                             <li id="representanteinput"><span class="placehold">Representante:</span>
                                 <select name="representante" id="representanteSelect">
-                                    <option value="representante1">Flavio</option>
-                                    <option value="representante2">Claudia</option>
-                                    <option value="representante3">Brandão</option>
-                                    <option value="representante4">Paulo</option>
+                                    <option>...</option>
                                 </select></li>
                    
                     <a onclick="alerta()" href="">
@@ -57,8 +51,92 @@
 </html>
 
 <script>
-    function alerta() {
+    function trazerDadosEmpresas() {
+        //aguardar();
+        fetch("/usuarios/listarEmpresas").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var retorno = document.getElementById("empresaSelect");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    retorno.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
 
-        alert(`Usuário Cadastrado`)
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var retorno = document.getElementById("empresaSelect");
+                    retorno.innerHTML = "";
+
+
+                    for (let i = resposta.length; i > 0; i--) {
+                        var dados = resposta[i-1];
+
+                        var option = document.createElement("option");
+
+                        option.innerHTML = dados.nomeEmpresa;
+  
+                        option.className = "optionEmpresa";
+
+                        option.setAttribute("value", `${dados.idEmpresa}`)
+                        option.setAttribute("onclick", `trazerDadosRepresentantes(${dados.idEmpresa})`)
+
+                        retorno.appendChild(option);
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
     }
+
+    function trazerDadosRepresentantes(idEmpresa){
+        fetch(`/usuarios/listarRepresentantes/${idEmpresa}`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var retorno = document.getElementById("representanteSelect");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    retorno.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var retorno = document.getElementById("representanteSelect");
+                    retorno.innerHTML = "";
+
+
+                    for (let i = resposta.length; i > 0; i--) {
+                        var dados = resposta[i-1];
+
+                        var option = document.createElement("option");
+
+                        option.innerHTML = dados.nomeRepresentante;
+  
+                        option.className = "optionEmpresa";
+
+                        option.setAttribute("value", `${dados.idRepresentante}`)
+
+                        retorno.appendChild(option);
+                    }
+
+                    // finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            // finalizarAguardar();
+        });
+    }
+
 </script>

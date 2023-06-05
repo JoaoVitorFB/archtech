@@ -5,8 +5,8 @@ function validar() {
     var cnpj = iptCNPJ.value;
     var telefone = iptTelefone.value;
     var cep = iptCEP.value;
-    var numero = iptNumero.value;
-    var endereco = iptEndereco.value;
+    var numero = iptNumLogradouro.value;
+    var endereco = iptLogradouro.value;
     var email = iptEmail.value;
    
 
@@ -53,6 +53,7 @@ function validar() {
             erro = true
         }
 if (!erro) {
+    cadastrarEmpresa();
     alert (`Usuário cadastrado com sucesso`)
 iptNome.value = ``
 iptNomeFantasia.value = ``

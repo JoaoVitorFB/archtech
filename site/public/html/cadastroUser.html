@@ -40,7 +40,7 @@
                             <option>...</option>
                         </select>
                     </li>
-                    <button class="btnDashboard" onclick="cadastrarUsuario()">Realizar Cadastro</button>
+                    <button class="btnDashboard" onclick="verificar()">Realizar Cadastro</button>
                 </ul>
             </div>
         </div>
@@ -50,6 +50,39 @@
 </html>
 
 <script>
+    function verificar() {
+        var login = iptLogin.value;
+        var senha = iptSenha.value;
+        var representante = representanteSelect.value;
+        var empresa = empresaSelect.value;
+        var erro = false;
+        
+        if (login == "" || senha == "") {
+            alert("Preencha todos os campos");
+            erro = true;
+        } else {
+            if (login.length < 3) {
+                alert("O login deve ter no mínimo 3 letras");
+                erro = true;
+            } else if (senha.length < 4) {
+                alert("A senha deve ter no mínimo 5 caracteres");
+                erro = true;
+            } else if (empresa == "Selecionar...") {
+                alert("Selecione uma empresa");
+                erro = true;
+            } else if (representante == "...") {
+                alert("Selecione um representante");
+                erro = true;
+            }
+        }
+        if (!erro) {
+            cadastrarUsuario()
+            alert("Usuário cadastrado com sucesso");
+            iptLogin.value = '';
+            iptSenha.value = '';
+        }
+    }
+
     function trazerDadosEmpresas() {
         //aguardar();
         fetch("/usuarios/listarEmpresas").then(function (resposta) {

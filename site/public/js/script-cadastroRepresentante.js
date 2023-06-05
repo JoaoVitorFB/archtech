@@ -1,12 +1,13 @@
 function validar() {
     var erro = false
     var nome = iptNome.value;
-    var telefone = iptTelefone.value;
+    var telefone = iptCelular.value;
     var email = iptEmail.value;
    
 
     if (nome == "" || telefone == ""  || email == "") {
         alert("Preencha todos os campos");
+        erro = true;
     } else { 
        
         if (telefone.length < 10) {
@@ -22,11 +23,12 @@ function validar() {
 
     }
 if (!erro) {
+    cadastrarRepresentante();
     alert (`Representante cadastrado com sucesso`)
 iptNome.value = ``
  
  
-iptTelefone.value = ``
+iptCelular.value = ``
  
  
  

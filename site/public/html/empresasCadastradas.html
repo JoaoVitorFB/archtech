@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/style-empresasCadastradas.css">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
-</head>   
+</head>
 <header>
     <div class="container">
         <img id="logoHeader" src="../assets/logo.png">
-       
+
         <li><a href="../index.html">Sair</a></li>
-        
+
     </div>
 </header>
 
@@ -24,7 +24,14 @@
         <div class="container">
             <div class="retangulo">
                 <span class="titulo">Empresas cadastradas</span>
-                <div class="imagem"></div>
+                <table id="emp_cadastradas">
+                    <tr>
+                        <th>id</th>
+                        <th>Empresas</th>
+                    </tr>
+
+                </table>
+                <!-- <div class="imagem"></div> -->
             </div>
         </div>
     </div>
@@ -33,3 +40,33 @@
 </body>
 
 </html>
+
+<script>
+    fetch("/usuarios/listarEmpresas").then(function (resposta) {
+        if (resposta.ok) {
+            if (resposta.status == 204) {
+                // var retorno = document.getElementById("empresaSelect");
+                // var mensagem = document.createElement("span");
+                // mensagem.innerHTML = "Nenhum resultado encontrado."
+                // retorno.appendChild(mensagem);
+                // throw "Nenhum resultado encontrado!!";
+            }
+            resposta.json().then(function (resposta) {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                for (let i = 0; i < resposta.length; i++) {
+                    var dados = resposta[i]
+                    emp_cadastradas.innerHTML += `<tr><td>${dados.idEmpresa}</td><td>${dados.nomeEmpresa}</td></tr>`
+                }
+
+                // finalizarAguardar();
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+        // finalizarAguardar();
+    });
+
+</script>

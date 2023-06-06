@@ -64,3 +64,12 @@ a,
 ul {
     list-style: none;
 }
+
+#botoesHeaderDash {
+    display: flex;
+    flex-direction: row;
+}
+
+#botoesHeaderDash li {
+    margin-left: 100px;
+}

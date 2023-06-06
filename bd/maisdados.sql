@@ -1,4 +1,4 @@
--- Active: 1685655382997@@127.0.0.1@3306@archtech
+  -- Active: 1681406347727@@127.0.0.1@3306@archtech
 
 
 INSERT INTO dados (crd_idCorredor, dds_idDados, dds_horaInicio, dds_horaFinal, dds_data, dds_fluxo)

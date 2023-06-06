@@ -26,7 +26,7 @@
 <body>
     <div class="container">
         <div class="retangulo">
-            <h1 id="tituloCorredor">Corredor 1</h1>
+            <h1 id="tituloCorredor">Corredor <b id="numeroCorredor"></b></h1>
             <div id="conteudo">
                 <div class="botoes">
                     <a href="graficoSelecionarDia.html"><button class="botao">Fluxo diario</button></a>
@@ -38,3 +38,6 @@
 </body>
 
 </html>
+<script>
+    numeroCorredor.innerHTML = sessionStorage.CORREDOR;
+</script>

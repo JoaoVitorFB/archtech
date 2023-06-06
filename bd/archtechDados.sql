@@ -17,7 +17,12 @@
 
 -- Copiando dados para a tabela archtech.corredor: ~1 rows (aproximadamente)
 INSERT INTO `corredor` (`crd_idCorredor`, `crd_corredor`, `crd_setor`, `emp_idEmpresa`) VALUES
-	(1, 1, 'Higiene', 2);
+	(1, 1, 'Higiene', 2),
+	(2, 2, 'Beleza e Cuidados Pessoais', 2),
+	(3, 3, 'Bomboniere', 2),
+	(4, 4, 'Bebidas', 2),
+	(5, 5, 'Bebidas Alcólicas', 2),
+	(6, 6, 'Frios', 2);
 
 -- Copiando dados para a tabela archtech.dados: ~13 rows (aproximadamente)
 INSERT INTO `dados` (`crd_idCorredor`, `dds_idDados`, `dds_horaInicio`, `dds_horaFinal`, `dds_data`, `dds_fluxo`) VALUES

@@ -25,7 +25,7 @@
         <div class="container">
             <div class="retangulo">
                 <div class="titulo">
-                    <span class="titulo">Corredor 1 - Diário</span>
+                    <span class="titulo">Corredor <b id="numeroCorredor"></b> - Diário</span>
                 </div>
                 <div class="content">   
                     <div class="input">
@@ -45,4 +45,5 @@
     function verDiario() {
     sessionStorage.DIA_SELECIONADO = ipt_selecionarDia.value;
     }  
+    numeroCorredor.innerHTML = sessionStorage.CORREDOR;
 </script>

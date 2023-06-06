@@ -36,7 +36,7 @@
                     <span id="nomeEmpresa"></span>
                 </div>
                 <div class="content" style="display: flex; flex-direction: row;">
-                    <section id="div_plotarGrafico" class="graficos" style="width: 50%;">
+                    <section id="div_plotarGrafico" class="graficos" style="width: 52%;">
                                         <!-- <canvas lass="can_grafico" id="chave"></canvas> -->         
                     </section>
                     <div style="width: 50%; display: flex; flex-direction: column; align-items: center; gap: 50px;">
@@ -71,14 +71,20 @@
     function atualizacaoPeriodica() {
         obterdados(1, dataAtual, 0, 0);
         obterdados(2, dataAtual, 0, 0);
-        // obterdados(3);
-        // obterdados(4);
+        obterdados(3, dataAtual, 0, 0);
+        obterdados(4, dataAtual, 0, 0);
+        obterdados(5, dataAtual, 0, 0);
+        obterdados(6, dataAtual, 0, 0);
 
         setTimeout(atualizacaoPeriodica, 5000);
     }
 
     window.onload = obterdadosGeral(1, dataAtual, 0, 0);
     window.onload = obterdadosGeral(2, dataAtual, 0, 0);
+    window.onload = obterdadosGeral(3, dataAtual, 0, 0);
+    window.onload = obterdadosGeral(4, dataAtual, 0, 0);
+    window.onload = obterdadosGeral(5, dataAtual, 0, 0);
+    window.onload = obterdadosGeral(6, dataAtual, 0, 0);
 
     function obterdadosGeral(idCorredor, diaSelecionado, mesSelecionado, medirmes) {
     fetch(`/medidas/tempo-real/${idCorredor}/${diaSelecionado}/${mesSelecionado}/${medirmes}`)
@@ -285,9 +291,7 @@
             type: 'doughnut',
             data: dados,
             options: {
-                animation: {
-                    
-                }
+              
             }
         };
 
@@ -297,7 +301,7 @@
             config
         );
 
-        setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 1000);
+        setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 5000);
     }
 
 
@@ -355,12 +359,12 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 1000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 5000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 1000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idCorredor, dados, myChart), 5000);
             }
         })
             .catch(function (error) {

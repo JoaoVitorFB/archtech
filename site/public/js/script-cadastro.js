@@ -35,7 +35,7 @@ function validar() {
         cnpj = Number(iptCNPJ.value);
         telefone = Number(iptTelefone.value);
         cep = Number(iptCEP.value);
-        numero = Number(iptNumero.value);
+        numero = Number(iptNumLogradouro.value);
         if (isNaN(cnpj) == true) {
             alert("CNPJ inválido");
             erro = true

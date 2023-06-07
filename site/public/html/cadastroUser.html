@@ -30,13 +30,13 @@
                 <ul class="inputs">
                     <li><span class="placehold">Login:</span><input id="iptLogin" type="text"></li>
                     <li><span class="placehold">Senha:</span><input id="iptSenha" type="text"></li>
-                    <li id="representanteinput"><span class="placehold">Empresa:</span>
-                        <select name="representante" id="empresaSelect" onfocus="trazerDadosEmpresas()">
+                    <li class="representanteinput"><span class="placehold">Empresa:</span>
+                        <select name="empresa" id="empresaSelect" onfocus="trazerDadosEmpresas()">
                             <option>Selecionar...</option>
                         </select>
                     </li>
-                    <li id="representanteinput"><span class="placehold">Representante:</span>
-                        <select name="representante" id="representanteSelect">
+                    <li class="representanteinput"><span class="placehold">Representante:</span>
+                        <select name="representante" onclick="trazerDadosRepresentantes()" id="representanteSelect">
                             <option>...</option>
                         </select>
                     </li>
@@ -101,7 +101,7 @@
                     var retorno = document.getElementById("empresaSelect");
                     retorno.innerHTML = "";
 
-
+                    
                     for (let i = resposta.length; i > 0; i--) {
                         var dados = resposta[i - 1];
 
@@ -111,11 +111,15 @@
 
                         option.className = "optionEmpresa";
 
-                        option.setAttribute("value", `${dados.idEmpresa}`)
-                        option.setAttribute("onclick", `trazerDadosRepresentantes(${dados.idEmpresa})`)
+                        option.setAttribute("value", `${Number(dados.idEmpresa)}`)
+                        option.setAttribute(`onclick`, `teste()`)
 
                         retorno.appendChild(option);
                     }
+                    
+                    let idEmpresa = dados.idEmpresa
+
+                    console.log(idEmpresa)
 
                     // finalizarAguardar();
                 });
@@ -128,7 +132,9 @@
         });
     }
 
-    function trazerDadosRepresentantes(idEmpresa) {
+    function trazerDadosRepresentantes() {
+        idEmpresa = empresaSelect.value
+
         fetch(`/usuarios/listarRepresentantes/${idEmpresa}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -155,7 +161,7 @@
 
                         option.className = "optionEmpresa";
 
-                        option.setAttribute("value", `${dados.idRepresentante}`)
+                        option.setAttribute("value", `${Number(dados.idRepresentante)}`)
 
                         retorno.appendChild(option);
                     }

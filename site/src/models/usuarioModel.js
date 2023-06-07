@@ -55,7 +55,7 @@ function cadastrarRepresentante(nome, email, celular, empresa) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
-        INSERT INTO representante (rpt_nome, rpt_celular, rpt_email, emp_idEmpresa) VALUES ('${nome}', '${email}', '${celular}', '${empresa}');
+        INSERT INTO representante (rpt_nome, rpt_email, rpt_celular, emp_idEmpresa) VALUES ('${nome}', '${email}', '${celular}', '${empresa}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

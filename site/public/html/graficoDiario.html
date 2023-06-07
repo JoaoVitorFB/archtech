@@ -215,7 +215,8 @@
             label: 'Fluxo de pessoas',
             data: [],
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: 'rgba(59, 87, 138, 1)',
+            backgroundColor: 'rgba(59, 87, 138, 1)',
             tension: 0.1
         }]
     };
@@ -334,10 +335,11 @@
           
           if (fluxoMin == 0){
             fluxoMin = dados.datasets[0].data[i]
+            horaFluxoMin = dados.labels[i]
           } else if (dados.datasets[0].data[i] < fluxoMin){
             fluxoMin = dados.datasets[0].data[i]
+            horaFluxoMin = dados.labels[i]
           }
-          horaFluxoMin = dados.labels[i]
         }
 
         for (i = 0; i < dados.datasets[0].data.length; i++) {

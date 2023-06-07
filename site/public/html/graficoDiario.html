@@ -28,7 +28,7 @@
         <div class="container">
             <div class="retangulo">
                 <div class="titulo">
-                    <span>Fluxo de pessoas do corredor 1</span>
+                    <span>Fluxo de pessoas do corredor <b id="numeroCorredor"></b></span>
                     <span id="boxdata">Data: 12/04/2023</span>
                 </div>
 
@@ -68,7 +68,7 @@
                     </section>
                     <section id="div_plotarGrafico" class="graficos">
                         <!-- <canvas lass="can_grafico" id="chave"></canvas> -->
-                        
+
                     </section>
 
                 </div>
@@ -104,7 +104,8 @@
 </html>
 
 <script>
-  var diaSelecionado = sessionStorage.DIA_SELECIONADO;
+    numeroCorredor.innerHTML = sessionStorage.CORREDOR;
+    var diaSelecionado = sessionStorage.DIA_SELECIONADO;
     var mesSelecionado = sessionStorage.MES_SELECIONADO;
     var data_brasileira = diaSelecionado.split('-').reverse().join('/');
     var fluxoMax = 0;
@@ -115,7 +116,7 @@
     var media = 0;
     var mediana = 0;
     var medirmes = 0;
-    boxdata.innerHTML= `Dia: ${data_brasileira}`;
+    boxdata.innerHTML = `Dia: ${data_brasileira}`;
     // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
     var idCorredor = Number(sessionStorage.CORREDOR);
     div_plotarGrafico.innerHTML = `<canvas class="can_grafico" id="myChartCanvas${idCorredor}"></canvas>`
@@ -179,7 +180,7 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function obterDadosGrafico(idCorredor) {
-         medirmes = 0
+        medirmes = 0
         // alterarTituloidCorredor)
 
         if (proximaAtualizacao != undefined) {
@@ -223,13 +224,13 @@
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
     function plotarGrafico(resposta, idCorredor) {
         console.log('iniciando plotagem do gráfico...');
-        
+
         // Criando estrutura para plotar gráfico - labels
 
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
-        
+
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
@@ -241,7 +242,7 @@
         metricas();
 
         // dados.datasets[1].data.push(registro.temperatura);
-        
+
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
         console.log('Labels:')
@@ -272,7 +273,7 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
     function atualizarGrafico(idCorredor, dados, myChart) {
-        
+
         fetch(`/medidas/tempo-real/${idCorredor}/${diaSelecionado}/${mesSelecionado}/${medirmes}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
@@ -323,32 +324,32 @@
 
     }
 
-    function metricas(){
+    function metricas() {
         for (i = 0; i < dados.datasets[0].data.length; i++) {
-          if (dados.datasets[0].data[i] > fluxoMax){
-            fluxoMax = dados.datasets[0].data[i]
-            horaFluxoMax = dados.labels[i]
-          }
+            if (dados.datasets[0].data[i] > fluxoMax) {
+                fluxoMax = dados.datasets[0].data[i]
+                horaFluxoMax = dados.labels[i]
+            }
         }
 
         for (i = 0; i < dados.datasets[0].data.length; i++) {
-          
-          if (fluxoMin == 0){
-            fluxoMin = dados.datasets[0].data[i]
-            horaFluxoMin = dados.labels[i]
-          } else if (dados.datasets[0].data[i] < fluxoMin){
-            fluxoMin = dados.datasets[0].data[i]
-            horaFluxoMin = dados.labels[i]
-          }
+
+            if (fluxoMin == 0) {
+                fluxoMin = dados.datasets[0].data[i]
+                horaFluxoMin = dados.labels[i]
+            } else if (dados.datasets[0].data[i] < fluxoMin) {
+                fluxoMin = dados.datasets[0].data[i]
+                horaFluxoMin = dados.labels[i]
+            }
         }
 
         for (i = 0; i < dados.datasets[0].data.length; i++) {
-          fluxoTotal = fluxoTotal + dados.datasets[0].data[i]
+            fluxoTotal = fluxoTotal + dados.datasets[0].data[i]
         }
 
-        media = fluxoTotal/dados.datasets[0].data.length
-        posMediana = dados.datasets[0].data.length/2
-        mediana = dados.datasets[0].data[posMediana.toFixed(0)] 
+        media = fluxoTotal / dados.datasets[0].data.length
+        posMediana = dados.datasets[0].data.length / 2
+        mediana = dados.datasets[0].data[posMediana.toFixed(0)]
 
         retFluxoMaximo.innerHTML = fluxoMax;
         retFluxoMinimo.innerHTML = fluxoMin;

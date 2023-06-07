@@ -28,7 +28,7 @@
         <div class="container">
             <div class="retangulo">
                 <div class="titulo">
-                    <span>Fluxo de pessoas do corredor 1</span>
+                    <span>Fluxo de pessoas do corredor <b id="numeroCorredor"></b></span>
                     <span id="boxdata"></span>
                 </div>
 
@@ -82,6 +82,7 @@
 
 </html>
 <script>
+    numeroCorredor.innerHTML = sessionStorage.CORREDOR;
     var diaSelecionado = sessionStorage.DIA_SELECIONADO;
     var mesSelecionado = sessionStorage.MES_SELECIONADO;
     

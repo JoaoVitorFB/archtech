@@ -1,4 +1,5 @@
-DROP DATABASE archtech;
+-- Active: 1685655382997@@127.0.0.1@3306@archtech
+
 CREATE DATABASE archtech;
 USE archtech ;
 

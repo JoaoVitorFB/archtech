@@ -1,3 +1,6 @@
+-- Active: 1685655382997@@127.0.0.1@3306@archtech
+
+USE archtech;
 INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,1,'08:00:00','09:00:00','2023-05-01',50);
 INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,1,'09:00:00','10:00:00','2023-05-01',69);
 INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,1,'10:00:00','11:00:00','2023-05-01',55);
@@ -543,8 +546,13 @@ INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_da
 INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,1,'11:00:00','12:00:00','2023-06-06',73);
 INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,1,'12:00:00','13:00:00','2023-06-06',79);
 
-INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,2,'09:00:00','10:00:00',NOW(),80);
+INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,2,'08:00:00','09:00:00',NOW(),49);
+INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,2,'09:00:00','10:00:00',NOW(),53);
+INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,3,'08:00:00','09:00:00',NOW(),54);
 INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,3,'09:00:00','10:00:00',NOW(),60);
+INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,4,'08:00:00','09:00:00',NOW(),49);
 INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,4,'09:00:00','10:00:00',NOW(),40);
-INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,5, '09:00:00','10:00:00',NOW(),31);
-INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,6, '09:00:00','10:00:00',NOW(),60);
+INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,5, '08:00:00','09:00:00',NOW(),50);
+INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,5, '09:00:00','10:00:00',NOW(),45);
+INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,6, '08:00:00','09:00:00',NOW(),60);
+INSERT INTO dados(dds_idDados,crd_idCorredor,dds_horaInicio,dds_horaFinal,dds_data,dds_fluxo) VALUES (NULL,6, '09:00:00','10:00:00',NOW(),57);
